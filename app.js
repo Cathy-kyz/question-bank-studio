@@ -284,8 +284,10 @@ const BUILTIN_DOMAINS = DOMAINS;
     const practiceAccuracy = practiceDone.length ? `${Math.round(practiceCorrect / practiceDone.length * 100)}%` : "—";
     const practiceDomainRows = DOMAINS.map((item) => {
       const total = QUESTION_BANK.filter((question) => question.domain === item.id).length;
-      const done = QUESTION_BANK.filter((question) => question.domain === item.id && practice[question.id]).length;
-      return `<div class="domain-row"><span class="domain-name">${text(item)}</span><span class="domain-count">${done} / ${total}</span><div class="domain-track"><div class="domain-fill" style="width:${total ? done / total * 100 : 0}%"></div></div></div>`;
+      const doneList = QUESTION_BANK.filter((question) => question.domain === item.id && practice[question.id]);
+      const done = doneList.length;
+      const domainAccuracy = done ? `${Math.round(doneList.filter((question) => practice[question.id].correct).length / done * 100)}%` : "—";
+      return `<div class="domain-row"><span class="domain-name">${text(item)}</span><span class="domain-count">${done} / ${total} · ${plain("accuracyLabel")} <b class="domain-accuracy">${domainAccuracy}</b></span><div class="domain-track"><div class="domain-fill" style="width:${total ? done / total * 100 : 0}%"></div></div></div>`;
     }).join("");
 
     const favoriteList = favoriteQuestions();
