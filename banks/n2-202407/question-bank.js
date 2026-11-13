@@ -182,10 +182,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "「栽培」の読み方ではなく、選択肢は「のうやく」となっているが、文中の下線は野菜を栽培しているの「栽培」ではなく「農薬」にかかっている。原分確認：農薬をの読み方。農薬は「のうやく」[cite: 2, 45]",
-        "ja": "「栽培」の読み方ではなく、選択肢は「のうやく」となっているが、文中の下線は野菜を栽培しているの「栽培」ではなく「農薬」にかかっている。原分確認：農薬をの読み方。農薬は「のうやく」[cite: 2, 45]"
+        "en": "「栽培」の読み方ではなく、選択肢は「のうやく」となっているが、文中の下線は野菜を栽培しているの「栽培」ではなく「農薬」にかかっている。原分確認：農薬をの読み方。農薬は「のうやく」",
+        "ja": "「栽培」の読み方ではなく、選択肢は「のうやく」となっているが、文中の下線は野菜を栽培しているの「栽培」ではなく「農薬」にかかっている。原分確認：農薬をの読み方。農薬は「のうやく」"
       },
-      "explanationSource": "「栽培」の読み方ではなく、選択肢は「のうやく」となっているが、文中の下線は野菜を栽培しているの「栽培」ではなく「農薬」にかかっている。原分確認：農薬をの読み方。農薬は「のうやく」[cite: 2, 45]",
+      "explanationSource": "「栽培」の読み方ではなく、選択肢は「のうやく」となっているが、文中の下線は野菜を栽培しているの「栽培」ではなく「農薬」にかかっている。原分確認：農薬をの読み方。農薬は「のうやく」",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "4"
@@ -884,10 +884,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "「行儀がいい」は「マナー」が良い。[cite: 48]",
-        "ja": "「行儀がいい」は「マナー」が良い。[cite: 48]"
+        "en": "「行儀がいい」は「マナー」が良い。",
+        "ja": "「行儀がいい」は「マナー」が良い。"
       },
-      "explanationSource": "「行儀がいい」は「マナー」が良い。[cite: 48]",
+      "explanationSource": "「行儀がいい」は「マナー」が良い。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "22"
@@ -923,10 +923,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "「いばっている」は「偉そうにしている」。[cite: 48]",
-        "ja": "「いばっている」は「偉そうにしている」。[cite: 48]"
+        "en": "「いばっている」は「偉そうにしている」。",
+        "ja": "「いばっている」は「偉そうにしている」。"
       },
-      "explanationSource": "「いばっている」は「偉そうにしている」。[cite: 48]",
+      "explanationSource": "「いばっている」は「偉そうにしている」。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "23"
@@ -962,10 +962,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 3,
       "explanation": {
-        "en": "「収納して」は「しまって」。[cite: 48]",
-        "ja": "「収納して」は「しまって」。[cite: 48]"
+        "en": "「収納して」は「しまって」。",
+        "ja": "「収納して」は「しまって」。"
       },
-      "explanationSource": "「収納して」は「しまって」。[cite: 48]",
+      "explanationSource": "「収納して」は「しまって」。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "24"
@@ -1001,10 +1001,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "「不平」は「文句」。[cite: 49]",
-        "ja": "「不平」は「文句」。[cite: 49]"
+        "en": "「不平」は「文句」。",
+        "ja": "「不平」は「文句」。"
       },
-      "explanationSource": "「不平」は「文句」。[cite: 49]",
+      "explanationSource": "「不平」は「文句」。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "25"
@@ -1040,10 +1040,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 3,
       "explanation": {
-        "en": "夫婦の共有の財産。[cite: 49]",
-        "ja": "夫婦の共有の財産。[cite: 49]"
+        "en": "夫婦の共有の財産。",
+        "ja": "夫婦の共有の財産。"
       },
-      "explanationSource": "夫婦の共有の財産。[cite: 49]",
+      "explanationSource": "夫婦の共有の財産。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 2,
       "label": "26"
@@ -1079,10 +1079,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "鋭い感覚。[cite: 49]",
-        "ja": "鋭い感覚。[cite: 49]"
+        "en": "鋭い感覚。",
+        "ja": "鋭い感覚。"
       },
-      "explanationSource": "鋭い感覚。[cite: 49]",
+      "explanationSource": "鋭い感覚。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 2,
       "label": "27"
@@ -1118,10 +1118,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "はきはきと答えた。[cite: 50]",
-        "ja": "はきはきと答えた。[cite: 50]"
+        "en": "はきはきと答えた。",
+        "ja": "はきはきと答えた。"
       },
-      "explanationSource": "はきはきと答えた。[cite: 50]",
+      "explanationSource": "はきはきと答えた。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 2,
       "label": "28"
@@ -1157,10 +1157,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "クラシック音楽を鑑賞した。[cite: 50]",
-        "ja": "クラシック音楽を鑑賞した。[cite: 50]"
+        "en": "クラシック音楽を鑑賞した。",
+        "ja": "クラシック音楽を鑑賞した。"
       },
-      "explanationSource": "クラシック音楽を鑑賞した。[cite: 50]",
+      "explanationSource": "クラシック音楽を鑑賞した。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 2,
       "label": "29"
@@ -1196,10 +1196,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "準備は着々と進んでいる。[cite: 50]",
-        "ja": "準備は着々と進んでいる。[cite: 50]"
+        "en": "準備は着々と進んでいる。",
+        "ja": "準備は着々と進んでいる。"
       },
-      "explanationSource": "準備は着々と進んでいる。[cite: 50]",
+      "explanationSource": "準備は着々と進んでいる。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 2,
       "label": "30"
@@ -1235,10 +1235,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 3,
       "explanation": {
-        "en": "私なんか（謙逊）。[cite: 50]",
-        "ja": "私なんか（謙逊）。[cite: 50]"
+        "en": "私なんか（謙逊）。",
+        "ja": "私なんか（謙逊）。"
       },
-      "explanationSource": "私なんか（謙逊）。[cite: 50]",
+      "explanationSource": "私なんか（謙逊）。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "31"
@@ -1274,10 +1274,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "どれほどいるのだろうか。[cite: 50]",
-        "ja": "どれほどいるのだろうか。[cite: 50]"
+        "en": "どれほどいるのだろうか。",
+        "ja": "どれほどいるのだろうか。"
       },
-      "explanationSource": "どれほどいるのだろうか。[cite: 50]",
+      "explanationSource": "どれほどいるのだろうか。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "32"
@@ -1313,10 +1313,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "なすといった夏の野菜。[cite: 50, 51]",
-        "ja": "なすといった夏の野菜。[cite: 50, 51]"
+        "en": "なすといった夏の野菜。",
+        "ja": "なすといった夏の野菜。"
       },
-      "explanationSource": "なすといった夏の野菜。[cite: 50, 51]",
+      "explanationSource": "なすといった夏の野菜。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "33"
@@ -1352,10 +1352,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "会ったきり、ずっと会っていない。[cite: 51]",
-        "ja": "会ったきり、ずっと会っていない。[cite: 51]"
+        "en": "会ったきり、ずっと会っていない。",
+        "ja": "会ったきり、ずっと会っていない。"
       },
-      "explanationSource": "会ったきり、ずっと会っていない。[cite: 51]",
+      "explanationSource": "会ったきり、ずっと会っていない。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "34"
@@ -1391,10 +1391,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "娘を参加させてみようか。[cite: 51]",
-        "ja": "娘を参加させてみようか。[cite: 51]"
+        "en": "娘を参加させてみようか。",
+        "ja": "娘を参加させてみようか。"
       },
-      "explanationSource": "娘を参加させてみようか。[cite: 51]",
+      "explanationSource": "娘を参加させてみようか。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "35"
@@ -1430,10 +1430,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "海水が入ったのであれば。[cite: 51]",
-        "ja": "海水が入ったのであれば。[cite: 51]"
+        "en": "海水が入ったのであれば。",
+        "ja": "海水が入ったのであれば。"
       },
-      "explanationSource": "海水が入ったのであれば。[cite: 51]",
+      "explanationSource": "海水が入ったのであれば。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "36"
@@ -1469,10 +1469,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "少しずつでいいから。[cite: 52]",
-        "ja": "少しずつでいいから。[cite: 52]"
+        "en": "少しずつでいいから。",
+        "ja": "少しずつでいいから。"
       },
-      "explanationSource": "少しずつでいいから。[cite: 52]",
+      "explanationSource": "少しずつでいいから。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "37"
@@ -1508,10 +1508,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 3,
       "explanation": {
-        "en": "200を超えるまでになった。[cite: 52]",
-        "ja": "200を超えるまでになった。[cite: 52]"
+        "en": "200を超えるまでになった。",
+        "ja": "200を超えるまでになった。"
       },
-      "explanationSource": "200を超えるまでになった。[cite: 52]",
+      "explanationSource": "200を超えるまでになった。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "38"
@@ -1547,10 +1547,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "コミュニケーションが欠かせない。[cite: 52]",
-        "ja": "コミュニケーションが欠かせない。[cite: 52]"
+        "en": "コミュニケーションが欠かせない。",
+        "ja": "コミュニケーションが欠かせない。"
       },
-      "explanationSource": "コミュニケーションが欠かせない。[cite: 52]",
+      "explanationSource": "コミュニケーションが欠かせない。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "39"
@@ -1586,10 +1586,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "電車で行けばよかった。[cite: 53]",
-        "ja": "電車で行けばよかった。[cite: 53]"
+        "en": "電車で行けばよかった。",
+        "ja": "電車で行けばよかった。"
       },
-      "explanationSource": "電車で行けばよかった。[cite: 53]",
+      "explanationSource": "電車で行けばよかった。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "40"
@@ -1625,10 +1625,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "時間を通勤に使うということになる。[cite: 53]",
-        "ja": "時間を通勤に使うということになる。[cite: 53]"
+        "en": "時間を通勤に使うということになる。",
+        "ja": "時間を通勤に使うということになる。"
       },
-      "explanationSource": "時間を通勤に使うということになる。[cite: 53]",
+      "explanationSource": "時間を通勤に使うということになる。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "41"
@@ -1664,10 +1664,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "お名前を伺ってもよろしいでしょうか。[cite: 53]",
-        "ja": "お名前を伺ってもよろしいでしょうか。[cite: 53]"
+        "en": "お名前を伺ってもよろしいでしょうか。",
+        "ja": "お名前を伺ってもよろしいでしょうか。"
       },
-      "explanationSource": "お名前を伺ってもよろしいでしょうか。[cite: 53]",
+      "explanationSource": "お名前を伺ってもよろしいでしょうか。",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "42"
@@ -1680,8 +1680,8 @@ window.N2_202407_BANK = {
         "ja": "問題８"
       },
       "prompt": {
-        "en": "「さわら」という魚、漢字で「鰆」と書く＿＿＿＿ ＿＿＿＿ ★ ＿＿＿＿ 春を代表する魚の一つだ。",
-        "ja": "「さわら」という魚、漢字で「鰆」と書く＿＿＿＿ ＿＿＿＿ ★ ＿＿＿＿ 春を代表する魚の一つだ。"
+        "en": "「さわら」という魚、漢字で「鰆」と書く＿＿＿＿ ＿＿＿＿ ★ ＿＿＿＿ 魚の一つだ。",
+        "ja": "「さわら」という魚、漢字で「鰆」と書く＿＿＿＿ ＿＿＿＿ ★ ＿＿＿＿ 魚の一つだ。"
       },
       "options": [
         {
@@ -1701,12 +1701,12 @@ window.N2_202407_BANK = {
           "ja": "春を代表する"
         }
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": {
-        "en": "正解の順番：3-2-1-4（ことから、わかるように）[cite: 54]",
-        "ja": "正解の順番：3-2-1-4（ことから、わかるように）[cite: 54]"
+        "en": "正解の順番：3-2-1-4（ことから、わかるように）",
+        "ja": "正解の順番：3-2-1-4（ことから、わかるように）"
       },
-      "explanationSource": "正解の順番：3-2-1-4（ことから、わかるように）[cite: 54]",
+      "explanationSource": "正解の順番：3-2-1-4（ことから、わかるように）",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "43"
@@ -1740,12 +1740,12 @@ window.N2_202407_BANK = {
           "ja": "褒めることができない"
         }
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": {
-        "en": "正解の順番：4-2-3-1（褒めることができない 課長が 褒める ぐらい）[cite: 54]",
-        "ja": "正解の順番：4-2-3-1（褒めることができない 課長が 褒める ぐらい）[cite: 54]"
+        "en": "正解の順番：4-2-3-1（褒めることができない 課長が 褒める ぐらい）",
+        "ja": "正解の順番：4-2-3-1（褒めることができない 課長が 褒める ぐらい）"
       },
-      "explanationSource": "正解の順番：4-2-3-1（褒めることができない 課長が 褒める ぐらい）[cite: 54]",
+      "explanationSource": "正解の順番：4-2-3-1（褒めることができない 課長が 褒める ぐらい）",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "44"
@@ -1779,12 +1779,12 @@ window.N2_202407_BANK = {
           "ja": "によって"
         }
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": {
-        "en": "正解の順番：2-3-4-1（でも 温度や風の強さなど によって 感じ方）[cite: 54]",
-        "ja": "正解の順番：2-3-4-1（でも 温度や風の強さなど によって 感じ方）[cite: 54]"
+        "en": "正解の順番：2-3-4-1（でも 温度や風の強さなど によって 感じ方）",
+        "ja": "正解の順番：2-3-4-1（でも 温度や風の強さなど によって 感じ方）"
       },
-      "explanationSource": "正解の順番：2-3-4-1（でも 温度や風の強さなど によって 感じ方）[cite: 54]",
+      "explanationSource": "正解の順番：2-3-4-1（でも 温度や風の強さなど によって 感じ方）",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "45"
@@ -1818,12 +1818,12 @@ window.N2_202407_BANK = {
           "ja": "すきでたまらないという"
         }
       ],
-      "answer": 3,
+      "answer": 0,
       "explanation": {
-        "en": "正解の順番：3-4-1-2（アニメが すきでたまらないという 学生が 集まって）[cite: 54]",
-        "ja": "正解の順番：3-4-1-2（アニメが すきでたまらないという 学生が 集まって）[cite: 54]"
+        "en": "正解の順番：3-4-1-2（アニメが すきでたまらないという 学生が 集まって）",
+        "ja": "正解の順番：3-4-1-2（アニメが すきでたまらないという 学生が 集まって）"
       },
-      "explanationSource": "正解の順番：3-4-1-2（アニメが すきでたまらないという 学生が 集まって）[cite: 54]",
+      "explanationSource": "正解の順番：3-4-1-2（アニメが すきでたまらないという 学生が 集まって）",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "46"
@@ -1859,10 +1859,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "正解の順番：1-4-3-2（新人で わからないことばかりの わたしからすると なんても完璧にできている） 原文ママ：なんても完璧にできている[cite: 54]",
-        "ja": "正解の順番：1-4-3-2（新人で わからないことばかりの わたしからすると なんても完璧にできている） 原文ママ：なんても完璧にできている[cite: 54]"
+        "en": "正解の順番：1-4-3-2（新人で わからないことばかりの わたしからすると なんても完璧にできている） 原文ママ：なんても完璧にできている",
+        "ja": "正解の順番：1-4-3-2（新人で わからないことばかりの わたしからすると なんても完璧にできている） 原文ママ：なんても完璧にできている"
       },
-      "explanationSource": "正解の順番：1-4-3-2（新人で わからないことばかりの わたしからすると なんても完璧にできている） 原文ママ：なんても完璧にできている[cite: 54]",
+      "explanationSource": "正解の順番：1-4-3-2（新人で わからないことばかりの わたしからすると なんても完璧にできている） 原文ママ：なんても完璧にできている",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1,
       "label": "47"
@@ -1898,10 +1898,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "「そんな紅葉」[cite: 13, 55]",
-        "ja": "「そんな紅葉」[cite: 13, 55]"
+        "en": "「そんな紅葉」",
+        "ja": "「そんな紅葉」"
       },
-      "explanationSource": "「そんな紅葉」[cite: 13, 55]",
+      "explanationSource": "「そんな紅葉」",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1.5,
       "passageGroupId": "grammar-3-1"
@@ -1937,10 +1937,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "「しかし」[cite: 13, 55]",
-        "ja": "「しかし」[cite: 13, 55]"
+        "en": "「しかし」",
+        "ja": "「しかし」"
       },
-      "explanationSource": "「しかし」[cite: 13, 55]",
+      "explanationSource": "「しかし」",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1.5,
       "passageGroupId": "grammar-3-1"
@@ -1976,10 +1976,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "「始まらないのです」[cite: 13, 55]",
-        "ja": "「始まらないのです」[cite: 13, 55]"
+        "en": "「始まらないのです」",
+        "ja": "「始まらないのです」"
       },
-      "explanationSource": "「始まらないのです」[cite: 13, 55]",
+      "explanationSource": "「始まらないのです」",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1.5,
       "passageGroupId": "grammar-3-1"
@@ -2015,10 +2015,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 3,
       "explanation": {
-        "en": "「感じるようになりました」[cite: 13, 55]",
-        "ja": "「感じるようになりました」[cite: 13, 55]"
+        "en": "「感じるようになりました」",
+        "ja": "「感じるようになりました」"
       },
-      "explanationSource": "「感じるようになりました」[cite: 13, 55]",
+      "explanationSource": "「感じるようになりました」",
       "scoreSection": "knowledgeGrammar",
       "scoreWeight": 1.5,
       "passageGroupId": "grammar-3-1"
@@ -2054,10 +2054,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "同じ言葉を、相手と自分が同じ意味で使用しているかを確認する。[cite: 14, 55]",
-        "ja": "同じ言葉を、相手と自分が同じ意味で使用しているかを確認する。[cite: 14, 55]"
+        "en": "同じ言葉を、相手と自分が同じ意味で使用しているかを確認する。",
+        "ja": "同じ言葉を、相手と自分が同じ意味で使用しているかを確認する。"
       },
-      "explanationSource": "同じ言葉を、相手と自分が同じ意味で使用しているかを確認する。[cite: 14, 55]",
+      "explanationSource": "同じ言葉を、相手と自分が同じ意味で使用しているかを確認する。",
       "scoreSection": "reading",
       "scoreWeight": 2.2,
       "passageGroupId": "reading-1-1"
@@ -2093,10 +2093,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "6月23日の午前2時から4時までは、インターネットで特急券が予約できない。[cite: 15, 55, 56]",
-        "ja": "6月23日の午前2時から4時までは、インターネットで特急券が予約できない。[cite: 15, 55, 56]"
+        "en": "6月23日の午前2時から4時までは、インターネットで特急券が予約できない。",
+        "ja": "6月23日の午前2時から4時までは、インターネットで特急券が予約できない。"
       },
-      "explanationSource": "6月23日の午前2時から4時までは、インターネットで特急券が予約できない。[cite: 15, 55, 56]",
+      "explanationSource": "6月23日の午前2時から4時までは、インターネットで特急券が予約できない。",
       "scoreSection": "reading",
       "scoreWeight": 2.2,
       "passageGroupId": "reading-1-2"
@@ -2132,10 +2132,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "卵を木の葉で包んで落とし、生まれた幼虫はその中でその葉を食べる。[cite: 16, 56]",
-        "ja": "卵を木の葉で包んで落とし、生まれた幼虫はその中でその葉を食べる。[cite: 16, 56]"
+        "en": "卵を木の葉で包んで落とし、生まれた幼虫はその中でその葉を食べる。",
+        "ja": "卵を木の葉で包んで落とし、生まれた幼虫はその中でその葉を食べる。"
       },
-      "explanationSource": "卵を木の葉で包んで落とし、生まれた幼虫はその中でその葉を食べる。[cite: 16, 56]",
+      "explanationSource": "卵を木の葉で包んで落とし、生まれた幼虫はその中でその葉を食べる。",
       "scoreSection": "reading",
       "scoreWeight": 2.2,
       "passageGroupId": "reading-1-3"
@@ -2171,10 +2171,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "見本として新色の3個を追加で送って欲しい。[cite: 17, 56]",
-        "ja": "見本として新色の3個を追加で送って欲しい。[cite: 17, 56]"
+        "en": "見本として新色の3個を追加で送って欲しい。",
+        "ja": "見本として新色の3個を追加で送って欲しい。"
       },
-      "explanationSource": "見本として新色の3個を追加で送って欲しい。[cite: 17, 56]",
+      "explanationSource": "見本として新色の3個を追加で送って欲しい。",
       "scoreSection": "reading",
       "scoreWeight": 2.2,
       "passageGroupId": "reading-1-4"
@@ -2210,10 +2210,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "人生の選択肢は多様であり、生き方はひとつではない。[cite: 18, 56, 57]",
-        "ja": "人生の選択肢は多様であり、生き方はひとつではない。[cite: 18, 56, 57]"
+        "en": "人生の選択肢は多様であり、生き方はひとつではない。",
+        "ja": "人生の選択肢は多様であり、生き方はひとつではない。"
       },
-      "explanationSource": "人生の選択肢は多様であり、生き方はひとつではない。[cite: 18, 56, 57]",
+      "explanationSource": "人生の選択肢は多様であり、生き方はひとつではない。",
       "scoreSection": "reading",
       "scoreWeight": 2.2,
       "passageGroupId": "reading-1-5"
@@ -2249,10 +2249,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 3,
       "explanation": {
-        "en": "見る人の興味の傾向に合わせて、情報提供すること。[cite: 19, 20, 57]",
-        "ja": "見る人の興味の傾向に合わせて、情報提供すること。[cite: 19, 20, 57]"
+        "en": "見る人の興味の傾向に合わせて、情報提供すること。",
+        "ja": "見る人の興味の傾向に合わせて、情報提供すること。"
       },
-      "explanationSource": "見る人の興味の傾向に合わせて、情報提供すること。[cite: 19, 20, 57]",
+      "explanationSource": "見る人の興味の傾向に合わせて、情報提供すること。",
       "scoreSection": "reading",
       "scoreWeight": 2.5,
       "passageGroupId": "reading-2-1"
@@ -2288,10 +2288,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "発想が固定化しないように、大量の情報を工夫して処理しなければならない。[cite: 20, 57]",
-        "ja": "発想が固定化しないように、大量の情報を工夫して処理しなければならない。[cite: 20, 57]"
+        "en": "発想が固定化しないように、大量の情報を工夫して処理しなければならない。",
+        "ja": "発想が固定化しないように、大量の情報を工夫して処理しなければならない。"
       },
-      "explanationSource": "発想が固定化しないように、大量の情報を工夫して処理しなければならない。[cite: 20, 57]",
+      "explanationSource": "発想が固定化しないように、大量の情報を工夫して処理しなければならない。",
       "scoreSection": "reading",
       "scoreWeight": 2.5,
       "passageGroupId": "reading-2-1"
@@ -2327,10 +2327,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "脳の調子がいいときを基準にしない。[cite: 21, 22, 58]",
-        "ja": "脳の調子がいいときを基準にしない。[cite: 21, 22, 58]"
+        "en": "脳の調子がいいときを基準にしない。",
+        "ja": "脳の調子がいいときを基準にしない。"
       },
-      "explanationSource": "脳の調子がいいときを基準にしない。[cite: 21, 22, 58]",
+      "explanationSource": "脳の調子がいいときを基準にしない。",
       "scoreSection": "reading",
       "scoreWeight": 2.5,
       "passageGroupId": "reading-2-2"
@@ -2366,10 +2366,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "計画の通りに行かなくても失望せずに、脳の調子が上がるのを待てばいい。[cite: 22, 58]",
-        "ja": "計画の通りに行かなくても失望せずに、脳の調子が上がるのを待てばいい。[cite: 22, 58]"
+        "en": "計画の通りに行かなくても失望せずに、脳の調子が上がるのを待てばいい。",
+        "ja": "計画の通りに行かなくても失望せずに、脳の調子が上がるのを待てばいい。"
       },
-      "explanationSource": "計画の通りに行かなくても失望せずに、脳の調子が上がるのを待てばいい。[cite: 22, 58]",
+      "explanationSource": "計画の通りに行かなくても失望せずに、脳の調子が上がるのを待てばいい。",
       "scoreSection": "reading",
       "scoreWeight": 2.5,
       "passageGroupId": "reading-2-2"
@@ -2405,10 +2405,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "祭りに対する撮る人自身の見方が感じられる写真。[cite: 23, 24, 58, 59]",
-        "ja": "祭りに対する撮る人自身の見方が感じられる写真。[cite: 23, 24, 58, 59]"
+        "en": "祭りに対する撮る人自身の見方が感じられる写真。",
+        "ja": "祭りに対する撮る人自身の見方が感じられる写真。"
       },
-      "explanationSource": "祭りに対する撮る人自身の見方が感じられる写真。[cite: 23, 24, 58, 59]",
+      "explanationSource": "祭りに対する撮る人自身の見方が感じられる写真。",
       "scoreSection": "reading",
       "scoreWeight": 2.5,
       "passageGroupId": "reading-2-3"
@@ -2444,10 +2444,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 3,
       "explanation": {
-        "en": "自分にしか表現できないものを撮るという気持ちで撮るべきだ。[cite: 24, 59]",
-        "ja": "自分にしか表現できないものを撮るという気持ちで撮るべきだ。[cite: 24, 59]"
+        "en": "自分にしか表現できないものを撮るという気持ちで撮るべきだ。",
+        "ja": "自分にしか表現できないものを撮るという気持ちで撮るべきだ。"
       },
-      "explanationSource": "自分にしか表現できないものを撮るという気持ちで撮るべきだ。[cite: 24, 59]",
+      "explanationSource": "自分にしか表現できないものを撮るという気持ちで撮るべきだ。",
       "scoreSection": "reading",
       "scoreWeight": 2.5,
       "passageGroupId": "reading-2-3"
@@ -2483,10 +2483,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "マニュアルをよく理解したうえで、自分が置かれた状況に対応できる人。[cite: 25, 26, 59, 60]",
-        "ja": "マニュアルをよく理解したうえで、自分が置かれた状況に対応できる人。[cite: 25, 26, 59, 60]"
+        "en": "マニュアルをよく理解したうえで、自分が置かれた状況に対応できる人。",
+        "ja": "マニュアルをよく理解したうえで、自分が置かれた状況に対応できる人。"
       },
-      "explanationSource": "マニュアルをよく理解したうえで、自分が置かれた状況に対応できる人。[cite: 25, 26, 59, 60]",
+      "explanationSource": "マニュアルをよく理解したうえで、自分が置かれた状況に対応できる人。",
       "scoreSection": "reading",
       "scoreWeight": 2.5,
       "passageGroupId": "reading-2-4"
@@ -2522,10 +2522,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 3,
       "explanation": {
-        "en": "自分にはできることでも、それをできない人もいることが、実感できないこと。[cite: 26, 60]",
-        "ja": "自分にはできることでも、それをできない人もいることが、実感できないこと。[cite: 26, 60]"
+        "en": "自分にはできることでも、それをできない人もいることが、実感できないこと。",
+        "ja": "自分にはできることでも、それをできない人もいることが、実感できないこと。"
       },
-      "explanationSource": "自分にはできることでも、それをできない人もいることが、実感できないこと。[cite: 26, 60]",
+      "explanationSource": "自分にはできることでも、それをできない人もいることが、実感できないこと。",
       "scoreSection": "reading",
       "scoreWeight": 2.5,
       "passageGroupId": "reading-2-4"
@@ -2561,10 +2561,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "特別な能力がなくても、アイデアを生み出すことができる。[cite: 27, 28, 60]",
-        "ja": "特別な能力がなくても、アイデアを生み出すことができる。[cite: 27, 28, 60]"
+        "en": "特別な能力がなくても、アイデアを生み出すことができる。",
+        "ja": "特別な能力がなくても、アイデアを生み出すことができる。"
       },
-      "explanationSource": "特別な能力がなくても、アイデアを生み出すことができる。[cite: 27, 28, 60]",
+      "explanationSource": "特別な能力がなくても、アイデアを生み出すことができる。",
       "scoreSection": "reading",
       "scoreWeight": 3,
       "passageGroupId": "reading-3-1"
@@ -2600,10 +2600,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 3,
       "explanation": {
-        "en": "Aは関連する分野だけでなく、ほかの分野の情報も得るといいと述べ、Bは普通とは反対のことを考えるといいと述べている。[cite: 28, 60]",
-        "ja": "Aは関連する分野だけでなく、ほかの分野の情報も得るといいと述べ、Bは普通とは反対のことを考えるといいと述べている。[cite: 28, 60]"
+        "en": "Aは関連する分野だけでなく、ほかの分野の情報も得るといいと述べ、Bは普通とは反対のことを考えるといいと述べている。",
+        "ja": "Aは関連する分野だけでなく、ほかの分野の情報も得るといいと述べ、Bは普通とは反対のことを考えるといいと述べている。"
       },
-      "explanationSource": "Aは関連する分野だけでなく、ほかの分野の情報も得るといいと述べ、Bは普通とは反対のことを考えるといいと述べている。[cite: 28, 60]",
+      "explanationSource": "Aは関連する分野だけでなく、ほかの分野の情報も得るといいと述べ、Bは普通とは反対のことを考えるといいと述べている。",
       "scoreSection": "reading",
       "scoreWeight": 3,
       "passageGroupId": "reading-3-1"
@@ -2639,10 +2639,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 3,
       "explanation": {
-        "en": "主人公になりきって食べたことのないものを想像して味わうこと。[cite: 29, 30, 61]",
-        "ja": "主人公になりきって食べたことのないものを想像して味わうこと。[cite: 29, 30, 61]"
+        "en": "主人公になりきって食べたことのないものを想像して味わうこと。",
+        "ja": "主人公になりきって食べたことのないものを想像して味わうこと。"
       },
-      "explanationSource": "主人公になりきって食べたことのないものを想像して味わうこと。[cite: 29, 30, 61]",
+      "explanationSource": "主人公になりきって食べたことのないものを想像して味わうこと。",
       "scoreSection": "reading",
       "scoreWeight": 4,
       "passageGroupId": "reading-4-1"
@@ -2678,10 +2678,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "つまらなく感じた点についていろいろ考えていると、おもしろくなる。[cite: 30, 61]",
-        "ja": "つまらなく感じた点についていろいろ考えていると、おもしろくなる。[cite: 30, 61]"
+        "en": "つまらなく感じた点についていろいろ考えていると、おもしろくなる。",
+        "ja": "つまらなく感じた点についていろいろ考えていると、おもしろくなる。"
       },
-      "explanationSource": "つまらなく感じた点についていろいろ考えていると、おもしろくなる。[cite: 30, 61]",
+      "explanationSource": "つまらなく感じた点についていろいろ考えていると、おもしろくなる。",
       "scoreSection": "reading",
       "scoreWeight": 4,
       "passageGroupId": "reading-4-1"
@@ -2717,10 +2717,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "本を読むことは、自由に想像を膨らませる楽しい創造の作業だ。[cite: 30, 61]",
-        "ja": "本を読むことは、自由に想像を膨らませる楽しい創造の作業だ。[cite: 30, 61]"
+        "en": "本を読むことは、自由に想像を膨らませる楽しい創造の作業だ。",
+        "ja": "本を読むことは、自由に想像を膨らませる楽しい創造の作業だ。"
       },
-      "explanationSource": "本を読むことは、自由に想像を膨らませる楽しい創造の作業だ。[cite: 30, 61]",
+      "explanationSource": "本を読むことは、自由に想像を膨らませる楽しい創造の作業だ。",
       "scoreSection": "reading",
       "scoreWeight": 4,
       "passageGroupId": "reading-4-1"
@@ -2756,10 +2756,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "ヤンさんは高校生（応募資格OK）、観光部門で2分〜5分のところ25秒はNG？待て、表を見るとヤンさんは25秒（緑茶部門の条件20〜30秒に合致、自然の魅力は観光部門？ 緑茶部門は緑茶をアピール）。原田さんは中学生で応募資格外、長島さんは「あり（発表済み）」で未発表の条件を満たさない。村木さんは塾講師（高校生以上OK）、緑茶の魅力で28秒、未発表。しかし解答は1（ヤンさん）。（要確認）[cite: 31, 32, 62]",
-        "ja": "ヤンさんは高校生（応募資格OK）、観光部門で2分〜5分のところ25秒はNG？待て、表を見るとヤンさんは25秒（緑茶部門の条件20〜30秒に合致、自然の魅力は観光部門？ 緑茶部門は緑茶をアピール）。原田さんは中学生で応募資格外、長島さんは「あり（発表済み）」で未発表の条件を満たさない。村木さんは塾講師（高校生以上OK）、緑茶の魅力で28秒、未発表。しかし解答は1（ヤンさん）。（要確認）[cite: 31, 32, 62]"
+        "en": "ヤンさんは高校生（応募資格OK）、観光部門で2分〜5分のところ25秒はNG？待て、表を見るとヤンさんは25秒（緑茶部門の条件20〜30秒に合致、自然の魅力は観光部門？ 緑茶部門は緑茶をアピール）。原田さんは中学生で応募資格外、長島さんは「あり（発表済み）」で未発表の条件を満たさない。村木さんは塾講師（高校生以上OK）、緑茶の魅力で28秒、未発表。しかし解答は1（ヤンさん）。（要確認）",
+        "ja": "ヤンさんは高校生（応募資格OK）、観光部門で2分〜5分のところ25秒はNG？待て、表を見るとヤンさんは25秒（緑茶部門の条件20〜30秒に合致、自然の魅力は観光部門？ 緑茶部門は緑茶をアピール）。原田さんは中学生で応募資格外、長島さんは「あり（発表済み）」で未発表の条件を満たさない。村木さんは塾講師（高校生以上OK）、緑茶の魅力で28秒、未発表。しかし解答は1（ヤンさん）。（要確認）"
       },
-      "explanationSource": "ヤンさんは高校生（応募資格OK）、観光部門で2分〜5分のところ25秒はNG？待て、表を見るとヤンさんは25秒（緑茶部門の条件20〜30秒に合致、自然の魅力は観光部門？ 緑茶部門は緑茶をアピール）。原田さんは中学生で応募資格外、長島さんは「あり（発表済み）」で未発表の条件を満たさない。村木さんは塾講師（高校生以上OK）、緑茶の魅力で28秒、未発表。しかし解答は1（ヤンさん）。（要確認）[cite: 31, 32, 62]",
+      "explanationSource": "ヤンさんは高校生（応募資格OK）、観光部門で2分〜5分のところ25秒はNG？待て、表を見るとヤンさんは25秒（緑茶部門の条件20〜30秒に合致、自然の魅力は観光部門？ 緑茶部門は緑茶をアピール）。原田さんは中学生で応募資格外、長島さんは「あり（発表済み）」で未発表の条件を満たさない。村木さんは塾講師（高校生以上OK）、緑茶の魅力で28秒、未発表。しかし解答は1（ヤンさん）。（要確認）",
       "scoreSection": "reading",
       "scoreWeight": 4,
       "passageGroupId": "reading-5-1"
@@ -2795,10 +2795,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "5月10日までに応募情報を送信し、24日までに動画を送信する。[cite: 32, 62]",
-        "ja": "5月10日までに応募情報を送信し、24日までに動画を送信する。[cite: 32, 62]"
+        "en": "5月10日までに応募情報を送信し、24日までに動画を送信する。",
+        "ja": "5月10日までに応募情報を送信し、24日までに動画を送信する。"
       },
-      "explanationSource": "5月10日までに応募情報を送信し、24日までに動画を送信する。[cite: 32, 62]",
+      "explanationSource": "5月10日までに応募情報を送信し、24日までに動画を送信する。",
       "scoreSection": "reading",
       "scoreWeight": 4,
       "passageGroupId": "reading-5-1"
@@ -2834,10 +2834,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "当日配る資料をコピーする。[cite: 34, 62, 72]",
-        "ja": "当日配る資料をコピーする。[cite: 34, 62, 72]"
+        "en": "当日配る資料をコピーする。",
+        "ja": "当日配る資料をコピーする。"
       },
-      "explanationSource": "当日配る資料をコピーする。[cite: 34, 62, 72]",
+      "explanationSource": "当日配る資料をコピーする。",
       "scoreSection": "listening",
       "scoreWeight": 2,
       "label": "1番"
@@ -2873,10 +2873,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "商品に値引きシールを貼る。[cite: 34, 63, 73]",
-        "ja": "商品に値引きシールを貼る。[cite: 34, 63, 73]"
+        "en": "商品に値引きシールを貼る。",
+        "ja": "商品に値引きシールを貼る。"
       },
-      "explanationSource": "商品に値引きシールを貼る。[cite: 34, 63, 73]",
+      "explanationSource": "商品に値引きシールを貼る。",
       "scoreSection": "listening",
       "scoreWeight": 2,
       "label": "2番"
@@ -2912,10 +2912,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "店の中の様子。[cite: 35, 63, 73]",
-        "ja": "店の中の様子。[cite: 35, 63, 73]"
+        "en": "店の中の様子。",
+        "ja": "店の中の様子。"
       },
-      "explanationSource": "店の中の様子。[cite: 35, 63, 73]",
+      "explanationSource": "店の中の様子。",
       "scoreSection": "listening",
       "scoreWeight": 2,
       "label": "3番"
@@ -2951,10 +2951,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "椅子に名前の紙を貼る。[cite: 35, 64, 73]",
-        "ja": "椅子に名前の紙を貼る。[cite: 35, 64, 73]"
+        "en": "椅子に名前の紙を貼る。",
+        "ja": "椅子に名前の紙を貼る。"
       },
-      "explanationSource": "椅子に名前の紙を貼る。[cite: 35, 64, 73]",
+      "explanationSource": "椅子に名前の紙を貼る。",
       "scoreSection": "listening",
       "scoreWeight": 2,
       "label": "4番"
@@ -2990,10 +2990,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "自転車の預かり場所を調べる。[cite: 36, 64, 65, 74]",
-        "ja": "自転車の預かり場所を調べる。[cite: 36, 64, 65, 74]"
+        "en": "自転車の預かり場所を調べる。",
+        "ja": "自転車の預かり場所を調べる。"
       },
-      "explanationSource": "自転車の預かり場所を調べる。[cite: 36, 64, 65, 74]",
+      "explanationSource": "自転車の預かり場所を調べる。",
       "scoreSection": "listening",
       "scoreWeight": 2,
       "label": "5番"
@@ -3029,10 +3029,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "母の夢を叶えたかったから。[cite: 38, 65, 74]",
-        "ja": "母の夢を叶えたかったから。[cite: 38, 65, 74]"
+        "en": "母の夢を叶えたかったから。",
+        "ja": "母の夢を叶えたかったから。"
       },
-      "explanationSource": "母の夢を叶えたかったから。[cite: 38, 65, 74]",
+      "explanationSource": "母の夢を叶えたかったから。",
       "scoreSection": "listening",
       "scoreWeight": 2,
       "label": "1番"
@@ -3068,10 +3068,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "ソファーをもらってくれる人を探す。[cite: 38, 65, 66, 75]",
-        "ja": "ソファーをもらってくれる人を探す。[cite: 38, 65, 66, 75]"
+        "en": "ソファーをもらってくれる人を探す。",
+        "ja": "ソファーをもらってくれる人を探す。"
       },
-      "explanationSource": "ソファーをもらってくれる人を探す。[cite: 38, 65, 66, 75]",
+      "explanationSource": "ソファーをもらってくれる人を探す。",
       "scoreSection": "listening",
       "scoreWeight": 2,
       "label": "2番"
@@ -3107,10 +3107,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "在宅での勤務を増やしてほしい。[cite: 39, 66, 75]",
-        "ja": "在宅での勤務を増やしてほしい。[cite: 39, 66, 75]"
+        "en": "在宅での勤務を増やしてほしい。",
+        "ja": "在宅での勤務を増やしてほしい。"
       },
-      "explanationSource": "在宅での勤務を増やしてほしい。[cite: 39, 66, 75]",
+      "explanationSource": "在宅での勤務を増やしてほしい。",
       "scoreSection": "listening",
       "scoreWeight": 2,
       "label": "3番"
@@ -3146,10 +3146,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "毎日シンプルな服を着る。[cite: 39, 66, 67, 75]",
-        "ja": "毎日シンプルな服を着る。[cite: 39, 66, 67, 75]"
+        "en": "毎日シンプルな服を着る。",
+        "ja": "毎日シンプルな服を着る。"
       },
-      "explanationSource": "毎日シンプルな服を着る。[cite: 39, 66, 67, 75]",
+      "explanationSource": "毎日シンプルな服を着る。",
       "scoreSection": "listening",
       "scoreWeight": 2,
       "label": "4番"
@@ -3185,10 +3185,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 3,
       "explanation": {
-        "en": "新しい分野の仕事をしてみたかったから。[cite: 40, 67, 76]",
-        "ja": "新しい分野の仕事をしてみたかったから。[cite: 40, 67, 76]"
+        "en": "新しい分野の仕事をしてみたかったから。",
+        "ja": "新しい分野の仕事をしてみたかったから。"
       },
-      "explanationSource": "新しい分野の仕事をしてみたかったから。[cite: 40, 67, 76]",
+      "explanationSource": "新しい分野の仕事をしてみたかったから。",
       "scoreSection": "listening",
       "scoreWeight": 2,
       "label": "5番"
@@ -3224,10 +3224,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 3,
       "explanation": {
-        "en": "優れた判断力。[cite: 40, 67, 68, 76]",
-        "ja": "優れた判断力。[cite: 40, 67, 68, 76]"
+        "en": "優れた判断力。",
+        "ja": "優れた判断力。"
       },
-      "explanationSource": "優れた判断力。[cite: 40, 67, 68, 76]",
+      "explanationSource": "優れた判断力。",
       "scoreSection": "listening",
       "scoreWeight": 2,
       "label": "6番"
@@ -3263,10 +3263,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "歯の役割。[cite: 41, 68]",
-        "ja": "歯の役割。[cite: 41, 68]"
+        "en": "歯の役割。",
+        "ja": "歯の役割。"
       },
-      "explanationSource": "歯の役割。[cite: 41, 68]",
+      "explanationSource": "歯の役割。",
       "scoreSection": "listening",
       "scoreWeight": 2,
       "label": "1番"
@@ -3302,10 +3302,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "鉄道の写真を撮るときに大切なこと。[cite: 41, 68]",
-        "ja": "鉄道の写真を撮るときに大切なこと。[cite: 41, 68]"
+        "en": "鉄道の写真を撮るときに大切なこと。",
+        "ja": "鉄道の写真を撮るときに大切なこと。"
       },
-      "explanationSource": "鉄道の写真を撮るときに大切なこと。[cite: 41, 68]",
+      "explanationSource": "鉄道の写真を撮るときに大切なこと。",
       "scoreSection": "listening",
       "scoreWeight": 2,
       "label": "2番"
@@ -3341,10 +3341,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 3,
       "explanation": {
-        "en": "デザインを意識し始めたきっかけ。[cite: 41, 69]",
-        "ja": "デザインを意識し始めたきっかけ。[cite: 41, 69]"
+        "en": "デザインを意識し始めたきっかけ。",
+        "ja": "デザインを意識し始めたきっかけ。"
       },
-      "explanationSource": "デザインを意識し始めたきっかけ。[cite: 41, 69]",
+      "explanationSource": "デザインを意識し始めたきっかけ。",
       "scoreSection": "listening",
       "scoreWeight": 2,
       "label": "3番"
@@ -3380,10 +3380,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "時間を上手に使う工夫。[cite: 41, 69]",
-        "ja": "時間を上手に使う工夫。[cite: 41, 69]"
+        "en": "時間を上手に使う工夫。",
+        "ja": "時間を上手に使う工夫。"
       },
-      "explanationSource": "時間を上手に使う工夫。[cite: 41, 69]",
+      "explanationSource": "時間を上手に使う工夫。",
       "scoreSection": "listening",
       "scoreWeight": 2,
       "label": "4番"
@@ -3419,10 +3419,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 3,
       "explanation": {
-        "en": "自分が考える旅というもの。[cite: 41, 69, 70]",
-        "ja": "自分が考える旅というもの。[cite: 41, 69, 70]"
+        "en": "自分が考える旅というもの。",
+        "ja": "自分が考える旅というもの。"
       },
-      "explanationSource": "自分が考える旅というもの。[cite: 41, 69, 70]",
+      "explanationSource": "自分が考える旅というもの。",
       "scoreSection": "listening",
       "scoreWeight": 2,
       "label": "5番"
@@ -3454,10 +3454,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "頑張ればできるんじゃない?[cite: 42, 70]",
-        "ja": "頑張ればできるんじゃない?[cite: 42, 70]"
+        "en": "頑張ればできるんじゃない?",
+        "ja": "頑張ればできるんじゃない?"
       },
-      "explanationSource": "頑張ればできるんじゃない?[cite: 42, 70]",
+      "explanationSource": "頑張ればできるんじゃない?",
       "scoreSection": "listening",
       "scoreWeight": 1.6,
       "label": "1番"
@@ -3489,10 +3489,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "資料、見ておきます。[cite: 42, 70]",
-        "ja": "資料、見ておきます。[cite: 42, 70]"
+        "en": "資料、見ておきます。",
+        "ja": "資料、見ておきます。"
       },
-      "explanationSource": "資料、見ておきます。[cite: 42, 70]",
+      "explanationSource": "資料、見ておきます。",
       "scoreSection": "listening",
       "scoreWeight": 1.6,
       "label": "2番"
@@ -3524,10 +3524,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "経験がなくてもいいんだね。[cite: 42, 70]",
-        "ja": "経験がなくてもいいんだね。[cite: 42, 70]"
+        "en": "経験がなくてもいいんだね。",
+        "ja": "経験がなくてもいいんだね。"
       },
-      "explanationSource": "経験がなくてもいいんだね。[cite: 42, 70]",
+      "explanationSource": "経験がなくてもいいんだね。",
       "scoreSection": "listening",
       "scoreWeight": 1.6,
       "label": "3番"
@@ -3559,10 +3559,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "忘れないようにするね。[cite: 42, 70]",
-        "ja": "忘れないようにするね。[cite: 42, 70]"
+        "en": "忘れないようにするね。",
+        "ja": "忘れないようにするね。"
       },
-      "explanationSource": "忘れないようにするね。[cite: 42, 70]",
+      "explanationSource": "忘れないようにするね。",
       "scoreSection": "listening",
       "scoreWeight": 1.6,
       "label": "4番"
@@ -3594,10 +3594,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "間に合ってよかったね。[cite: 42, 70]",
-        "ja": "間に合ってよかったね。[cite: 42, 70]"
+        "en": "間に合ってよかったね。",
+        "ja": "間に合ってよかったね。"
       },
-      "explanationSource": "間に合ってよかったね。[cite: 42, 70]",
+      "explanationSource": "間に合ってよかったね。",
       "scoreSection": "listening",
       "scoreWeight": 1.6,
       "label": "5番"
@@ -3629,10 +3629,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "ここに書いてあるように話すんですね。[cite: 42, 70]",
-        "ja": "ここに書いてあるように話すんですね。[cite: 42, 70]"
+        "en": "ここに書いてあるように話すんですね。",
+        "ja": "ここに書いてあるように話すんですね。"
       },
-      "explanationSource": "ここに書いてあるように話すんですね。[cite: 42, 70]",
+      "explanationSource": "ここに書いてあるように話すんですね。",
       "scoreSection": "listening",
       "scoreWeight": 1.6,
       "label": "6番"
@@ -3664,10 +3664,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "そんなに緊張しなくても大丈夫だよ。[cite: 42, 71]",
-        "ja": "そんなに緊張しなくても大丈夫だよ。[cite: 42, 71]"
+        "en": "そんなに緊張しなくても大丈夫だよ。",
+        "ja": "そんなに緊張しなくても大丈夫だよ。"
       },
-      "explanationSource": "そんなに緊張しなくても大丈夫だよ。[cite: 42, 71]",
+      "explanationSource": "そんなに緊張しなくても大丈夫だよ。",
       "scoreSection": "listening",
       "scoreWeight": 1.6,
       "label": "7番"
@@ -3699,10 +3699,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "そういうことなら、仕方ないね。[cite: 42, 71]",
-        "ja": "そういうことなら、仕方ないね。[cite: 42, 71]"
+        "en": "そういうことなら、仕方ないね。",
+        "ja": "そういうことなら、仕方ないね。"
       },
-      "explanationSource": "そういうことなら、仕方ないね。[cite: 42, 71]",
+      "explanationSource": "そういうことなら、仕方ないね。",
       "scoreSection": "listening",
       "scoreWeight": 1.6,
       "label": "8番"
@@ -3734,10 +3734,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "本当、お腹いっぱいになったね。[cite: 42, 71]",
-        "ja": "本当、お腹いっぱいになったね。[cite: 42, 71]"
+        "en": "本当、お腹いっぱいになったね。",
+        "ja": "本当、お腹いっぱいになったね。"
       },
-      "explanationSource": "本当、お腹いっぱいになったね。[cite: 42, 71]",
+      "explanationSource": "本当、お腹いっぱいになったね。",
       "scoreSection": "listening",
       "scoreWeight": 1.6,
       "label": "9番"
@@ -3769,10 +3769,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "じゃあ、お願いしてみようかな。[cite: 42, 71]",
-        "ja": "じゃあ、お願いしてみようかな。[cite: 42, 71]"
+        "en": "じゃあ、お願いしてみようかな。",
+        "ja": "じゃあ、お願いしてみようかな。"
       },
-      "explanationSource": "じゃあ、お願いしてみようかな。[cite: 42, 71]",
+      "explanationSource": "じゃあ、お願いしてみようかな。",
       "scoreSection": "listening",
       "scoreWeight": 1.6,
       "label": "10番"
@@ -3804,10 +3804,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "色々悩んだんだね。[cite: 42, 71]",
-        "ja": "色々悩んだんだね。[cite: 42, 71]"
+        "en": "色々悩んだんだね。",
+        "ja": "色々悩んだんだね。"
       },
-      "explanationSource": "色々悩んだんだね。[cite: 42, 71]",
+      "explanationSource": "色々悩んだんだね。",
       "scoreSection": "listening",
       "scoreWeight": 1.6,
       "label": "11番"
@@ -3843,10 +3843,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 1,
       "explanation": {
-        "en": "ベンチを塗り直してきれいにすること。[cite: 43, 71, 78, 79]",
-        "ja": "ベンチを塗り直してきれいにすること。[cite: 43, 71, 78, 79]"
+        "en": "ベンチを塗り直してきれいにすること。",
+        "ja": "ベンチを塗り直してきれいにすること。"
       },
-      "explanationSource": "ベンチを塗り直してきれいにすること。[cite: 43, 71, 78, 79]",
+      "explanationSource": "ベンチを塗り直してきれいにすること。",
       "scoreSection": "listening",
       "scoreWeight": 2.8,
       "label": "1番"
@@ -3882,10 +3882,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 0,
       "explanation": {
-        "en": "中央会場。[cite: 44, 79]",
-        "ja": "中央会場。[cite: 44, 79]"
+        "en": "中央会場。",
+        "ja": "中央会場。"
       },
-      "explanationSource": "中央会場。[cite: 44, 79]",
+      "explanationSource": "中央会場。",
       "scoreSection": "listening",
       "scoreWeight": 2.8,
       "label": "2a番"
@@ -3921,10 +3921,10 @@ window.N2_202407_BANK = {
       ],
       "answer": 2,
       "explanation": {
-        "en": "東会場。[cite: 44, 79]",
-        "ja": "東会場。[cite: 44, 79]"
+        "en": "東会場。",
+        "ja": "東会場。"
       },
-      "explanationSource": "東会場。[cite: 44, 79]",
+      "explanationSource": "東会場。",
       "scoreSection": "listening",
       "scoreWeight": 2.8,
       "label": "2b番"
