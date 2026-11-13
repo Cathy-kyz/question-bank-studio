@@ -25,11 +25,9 @@ const BUILTIN_DOMAINS = DOMAINS;
     domains: BUILTIN_DOMAINS,
     questions: (window.IMPORTED_QUESTIONS?.length ? window.IMPORTED_QUESTIONS : QUESTIONS).map(translateQuestion)
   });
-  const n2BuiltinBank = () => window.N2_202307_BANK ? {
-    ...window.N2_202307_BANK,
-    id: "n2-202307",
-    builtin: true
-  } : null;
+  const n2BuiltinBanks = () => [["n2-202307", window.N2_202307_BANK], ["n2-202312", window.N2_202312_BANK]]
+    .filter(([, source]) => source)
+    .map(([id, source]) => ({ ...source, id, type: "jlpt-n2", builtin: true }));
   // The active bank drives QUESTION_BANK and DOMAINS; progress is scoped by profile and bank.
   let banks = [];
   let bank = null;
@@ -161,7 +159,7 @@ const BUILTIN_DOMAINS = DOMAINS;
     const valueFor = (language) => ui[language][key] ?? n2Ui[language][key];
     return state.language === "all" ? compare((language) => fill(valueFor(language))) : fill(valueFor(state.language));
   };
-  const text = (item) => bank?.id === "n2-202307"
+  const text = (item) => bank?.type === "jlpt-n2"
     ? formattedPassageText(item.ja || item.en || "")
     : state.language === "all"
       ? compare((language) => escapeHtml(item[language] || (language === "en" ? item.en : ui.en.missingTranslation[language])))
@@ -184,14 +182,14 @@ const BUILTIN_DOMAINS = DOMAINS;
         (match, prefix, labels) => `${prefix}${labels.replace(/[A-D]/g, remapLetter)}`);
     return Object.fromEntries(Object.entries(item).map(([language, value]) => [language, remapText(value)]));
   };
-  const plainText = (item) => bank?.id === "n2-202307"
+  const plainText = (item) => bank?.type === "jlpt-n2"
     ? escapeHtml(item.ja || item.en || "")
     : state.language === "all"
       ? languages.map(([, language]) => escapeHtml(item[language] || item.en)).join(" / ")
       : escapeHtml(item[state.language] || item.en || "");
   const plain = (key) => ui[state.language === "all" ? "en" : state.language][key];
   const domain = (id) => DOMAINS.find((entry) => entry.id === id);
-  const isN2Bank = () => bank?.id === "n2-202307";
+  const isN2Bank = () => bank?.type === "jlpt-n2";
   const optionLabel = (question, index) => isN2Bank() && question.options.every((option) => !(option.ja || option.en))
     ? String(index + 1)
     : String.fromCharCode(65 + index);
@@ -754,6 +752,7 @@ const BUILTIN_DOMAINS = DOMAINS;
           </div>` : "";
     const n2StemPrefix = () => {
       if (!isN2Bank() || readingGroup) return "";
+      if (q.label) return `${q.label}　`;
       const number = q.id.match(/^[LG]-(\d+)$/)?.[1];
       if (number) return `${Number(number)}　`;
       const listening = q.id.match(/^S(\d)-(\d+)([ab])?$/);
@@ -1059,7 +1058,7 @@ const BUILTIN_DOMAINS = DOMAINS;
     } catch {
       state.notice = { text: plain("storageUnavailable"), error: true };
     }
-    banks = [builtinBank(), n2BuiltinBank(), ...imported].filter(Boolean);
+    banks = [builtinBank(), ...n2BuiltinBanks(), ...imported].filter(Boolean);
     activate(banks.find((item) => item.id === localStorage.getItem(BANK_KEY)) || banks[0]);
     document.querySelectorAll(".language-button").forEach((button) => button.addEventListener("click", () => setLanguage(button.dataset.language)));
     document.getElementById("home-link").addEventListener("click", (event) => {

@@ -62,7 +62,7 @@
       previewName: "問題集名", previewQuestions: "問題数", previewDomains: "領域", saveBank: "この問題集を保存して選択", cancel: "キャンセル",
       saved: "保存しました。練習画面でこの問題集が選択されています。", importFailed: "取り込めませんでした：", notJson: "JSONとして読み込めません：",
       deleteBank: "削除", deleteConfirm: "この問題集と、保存された進捗をすべて削除しますか？", noBanks: "取り込み済みの問題集はありません。",
-      active: "選択中", questionsUnit: "問", footer: "問題集のインポート", saveFailed: "保存できませんでした。このブラウザーでは問題集を保存できない可能性があります。"
+      n2Heading: "JLPT N2 形式（type: jlpt-n2）", n2Intro: "N2 の過去問は、大問・文章・配点を含むこの形式で取り込みます。取り込むと、大問タブ・文章表示・3科目の採点・聴解の一括確認が使えます。", n2SampleHeading: "N2 サンプル", n2SampleIntro: "各種類の問題を1つずつ含む最小の例です。", n2DownloadSample: "n2-sample.json をダウンロード", n2PromptHeading: "AI 用の指示文", n2PromptIntro: "過去問のPDFとこの指示文をAIに渡すと、この形式のJSONを作らせることができます。", n2CopyPrompt: "指示文をコピー", previewType: "形式", previewWarnings: "確認してください", active: "選択中", questionsUnit: "問", footer: "問題集のインポート", saveFailed: "保存できませんでした。このブラウザーでは問題集を保存できない可能性があります。"
     },
     en: {
       eyebrow: "Manage question banks", title: "Import a question bank", lead: "Load a question bank from a JSON file. You can review it before saving.",
@@ -75,7 +75,7 @@
       previewName: "Bank name", previewQuestions: "Questions", previewDomains: "Domains", saveBank: "Save and select this bank", cancel: "Cancel",
       saved: "Saved. This bank is now selected in the practice screen.", importFailed: "Import failed:", notJson: "Not valid JSON:",
       deleteBank: "Delete", deleteConfirm: "Delete this bank and all progress saved for it?", noBanks: "No imported question banks yet.",
-      active: "Selected", questionsUnit: "questions", footer: "Question bank import", saveFailed: "Could not save. This browser may not support storing question banks."
+      n2Heading: "JLPT N2 format (type: jlpt-n2)", n2Intro: "Import N2 past papers in this format (problems, passages, points). You get problem tabs, passage display, three-section scoring and batch confirmation for listening.", n2SampleHeading: "N2 sample", n2SampleIntro: "A minimal example with one question of each kind.", n2DownloadSample: "Download n2-sample.json", n2PromptHeading: "Instructions for an AI", n2PromptIntro: "Give the past-paper PDFs and this text to an AI to have it produce JSON in this format.", n2CopyPrompt: "Copy instructions", previewType: "Format", previewWarnings: "Please check", active: "Selected", questionsUnit: "questions", footer: "Question bank import", saveFailed: "Could not save. This browser may not support storing question banks."
     },
     zh: {
       eyebrow: "题库管理", title: "导入题库", lead: "从 JSON 文件导入题库。保存前可以先检查内容。",
@@ -88,7 +88,7 @@
       previewName: "题库名称", previewQuestions: "题数", previewDomains: "领域", saveBank: "保存并选择此题库", cancel: "取消",
       saved: "已保存。练习画面已选中此题库。", importFailed: "导入失败：", notJson: "无法作为 JSON 读取：",
       deleteBank: "删除", deleteConfirm: "确定删除此题库及其保存的全部进度吗？", noBanks: "还没有导入的题库。",
-      active: "当前选择", questionsUnit: "题", footer: "题库导入", saveFailed: "无法保存。此浏览器可能不支持保存题库。"
+      n2Heading: "JLPT N2 格式（type: jlpt-n2）", n2Intro: "N2 真题用这种格式导入（含大题、文章、配点）。导入后可使用大题 tab、文章显示、三科目评分和听解统一确认。", n2SampleHeading: "N2 示例", n2SampleIntro: "每种题型各一道的最小示例。", n2DownloadSample: "下载 n2-sample.json", n2PromptHeading: "给 AI 的指示文", n2PromptIntro: "把真题 PDF 和这段文字交给 AI，就能让它生成这种格式的 JSON。", n2CopyPrompt: "复制指示文", previewType: "格式", previewWarnings: "请确认", active: "当前选择", questionsUnit: "题", footer: "题库导入", saveFailed: "无法保存。此浏览器可能不支持保存题库。"
     }
   };
 
@@ -112,6 +112,15 @@
         <td>${esc(item.desc[lang] || item.desc.en)}</td>
       </tr>`).join("");
     document.getElementById("sample-code").textContent = SAMPLE_TEXT;
+    const n2 = window.N2_FORMAT;
+    document.getElementById("n2-format-rows").innerHTML = n2.fields.map((item) => `
+      <tr>
+        <td><code>${esc(item.field)}</code></td>
+        <td><span class="req-pill ${item.req === "required" ? "is-required" : ""}">${item.req === "required" ? t("reqRequired") : item.req === "optional" ? t("reqOptional") : esc(item.req)}</span></td>
+        <td>${esc(item.desc[lang] || item.desc.en)}</td>
+      </tr>`).join("");
+    document.getElementById("n2-sample-code").textContent = n2.sample;
+    document.getElementById("n2-prompt-code").textContent = n2.prompt;
   }
 
   function renderNotice() {
@@ -130,10 +139,12 @@
         <dl class="preview-facts">
           <div><dt>${esc(t("previewName"))}</dt><dd>${esc(pick(pending.name))}</dd></div>
           <div><dt>${esc(t("previewQuestions"))}</dt><dd>${pending.questions.length}</dd></div>
+          ${pending.type ? `<div><dt>${esc(t("previewType"))}</dt><dd>JLPT N2</dd></div>` : ""}
         </dl>
+        ${pending.warnings?.length ? `<p class="preview-label">${esc(t("previewWarnings"))}</p><ul class="preview-domains">${pending.warnings.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>` : ""}
         <p class="preview-label">${esc(t("previewDomains"))}</p>
         <ul class="preview-domains">${domains}</ul>
-        <p class="preview-sample">${esc(pick(pending.questions[0].prompt))}</p>
+        <p class="preview-sample">${esc(pick(pending.questions[0].prompt).replace(/<[^>]+>/g, ""))}</p>
         <div class="workspace-row">
           <button class="btn btn-primary btn-small" id="save-bank" type="button">${esc(t("saveBank"))}</button>
           <button class="btn btn-quiet btn-small" id="cancel-bank" type="button">${esc(t("cancel"))}</button>
@@ -244,6 +255,27 @@
     const link = document.createElement("a");
     link.href = url;
     link.download = "sample-bank.json";
+    link.click();
+    URL.revokeObjectURL(url);
+  });
+
+  const copyText = async (buttonId, value, labelKey) => {
+    const button = document.getElementById(buttonId);
+    try {
+      await navigator.clipboard.writeText(value);
+      button.textContent = t("copied");
+    } catch {
+      button.textContent = t("copyFailed");
+    }
+    setTimeout(() => { button.textContent = t(labelKey); }, 1500);
+  };
+  document.getElementById("copy-n2-sample").addEventListener("click", () => copyText("copy-n2-sample", window.N2_FORMAT.sample, "copySample"));
+  document.getElementById("copy-n2-prompt").addEventListener("click", () => copyText("copy-n2-prompt", window.N2_FORMAT.prompt, "n2CopyPrompt"));
+  document.getElementById("download-n2-sample").addEventListener("click", () => {
+    const url = URL.createObjectURL(new Blob([window.N2_FORMAT.sample], { type: "application/json" }));
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "n2-sample.json";
     link.click();
     URL.revokeObjectURL(url);
   });

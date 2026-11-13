@@ -163,7 +163,7 @@ h3 { font-size: 15px; margin-bottom: 6px; }
 .question-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 17px; }
 .question-number { color: var(--muted); font-size: 12px; font-weight: 600; }
 .topic-pill { border-radius: 20px; background: #f4f4f8; padding: 6px 10px; color: #666a7b; font-size: 10px; font-weight: 600; }
-.question-text { font-size: clamp(17px, 2.5vw, 20px); line-height: 1.75; font-weight: 600; letter-spacing: -.025em; margin-bottom: 24px; white-space: pre-line; }
+.question-text { font-size: clamp(16px, 2.25vw, 18px); line-height: 1.75; font-weight: 600; letter-spacing: -.025em; margin-bottom: 24px; white-space: pre-line; }
 .options { display: grid; gap: 10px; }
 .option { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; text-align: left; width: 100%; padding: 14px 15px; border-radius: 12px; background: white; border: 1px solid var(--line); color: var(--ink); line-height: 1.65; font-size: 13px; transition: border .15s, background .15s, transform .15s; }
 .option:hover:not(:disabled) { border-color: #aaa2ef; transform: translateY(-1px); }
