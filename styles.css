@@ -155,7 +155,9 @@ h3 { font-size: 15px; margin-bottom: 6px; }
 .quiz-top-actions { display: flex; align-items: center; gap: 15px; }
 .timer { font-variant-numeric: tabular-nums; color: #5d6072; font-size: 13px; font-weight: 700; }
 /* Keep the mock-exam countdown visible while the page scrolls. */
-.quiz-top-actions .timer { position: fixed; top: 12px; right: 16px; z-index: 50; padding: 8px 14px; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); box-shadow: 0 6px 20px rgba(21, 22, 38, .14); font-size: 14px; }
+.exam-float { position: fixed; top: 12px; right: 16px; z-index: 50; display: flex; align-items: center; gap: 10px; padding: 4px 14px; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); box-shadow: 0 6px 20px rgba(21, 22, 38, .14); }
+.exam-float .timer { font-size: 14px; }
+.exam-float .text-button { padding: 4px 0; white-space: nowrap; }
 .text-button { border: 0; background: transparent; color: var(--muted); font-size: 12px; font-weight: 600; padding: 7px 0; }
 .progress-line { height: 5px; background: #e9eaf1; border-radius: 8px; overflow: hidden; margin-bottom: 23px; }
 .progress-value { height: 100%; background: var(--purple); border-radius: inherit; transition: width .25s ease; }

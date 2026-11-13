@@ -531,7 +531,7 @@ const BUILTIN_DOMAINS = DOMAINS;
     clearInterval(state.timerId);
     state.timerId = null;
     if (!isUnsavedMode(mode)) writePart("resume", null);
-    const optionOrders = Object.fromEntries(list.map((question) => [question.id, shuffle(question.options.map((_, index) => index))]));
+    const optionOrders = Object.fromEntries(list.map((question) => [question.id, isN2Bank() ? question.options.map((_, index) => index) : shuffle(question.options.map((_, index) => index))]));
     state.session = { mode, list, optionOrders, current: 0, selected: {}, checked: {}, seconds: mode === "exam" ? (useScenarioExam() ? 7200 : list.length * 90) : null };
     if (mode === "exam") startExamTimer();
     renderQuiz();
@@ -796,7 +796,7 @@ const BUILTIN_DOMAINS = DOMAINS;
       <section class="quiz-wrap ${scenario ? "is-scenario" : isN2Bank() ? "is-n2-quiz" : ""}">
         <div class="quiz-topline">
           <span class="quiz-mode">${modeLabel(session.mode)}</span>
-          <div class="quiz-top-actions">${session.mode === "exam" ? `<span class="timer" id="timer" aria-label="${plain("remaining")}">${formatTime(session.seconds)}</span><button class="text-button" id="pause-exam" type="button">⏸ ${tr("pause")}</button>` : ""}<button class="text-button" id="exit-quiz" type="button">← ${tr("backHome")}</button></div>
+          <div class="quiz-top-actions">${session.mode === "exam" ? `<div class="exam-float"><span class="timer" id="timer" aria-label="${plain("remaining")}">${formatTime(session.seconds)}</span><button class="text-button" id="pause-exam" type="button">⏸ ${tr("pause")}</button></div>` : ""}<button class="text-button" id="exit-quiz" type="button">← ${tr("backHome")}</button></div>
         </div>
         <div class="progress-line" role="progressbar" aria-valuenow="${session.current + 1}" aria-valuemin="1" aria-valuemax="${session.list.length}"><div class="progress-value" style="width:${progress}%"></div></div>
         <div class="${scenario ? "scenario-layout" : isN2Bank() ? `n2-layout ${readingGroup ? "has-reading-passage" : ""}` : ""}">
