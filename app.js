@@ -103,7 +103,9 @@ const BUILTIN_DOMAINS = DOMAINS;
       n2WeightedPoints: "Weighted points in this quiz: {earned}/{available}",
       n2SecKnowledgeGrammar: "Language knowledge (vocabulary·grammar)", n2SecReading: "Reading", n2SecListening: "Listening",
       n2Total: "Total", n2PassRule: "Pass: total ≥ {pass} and every section ≥ {min}", n2Pass: "Pass level", n2Fail: "Below pass line",
-      n2Partial: "Sections not included in this quiz are shown as “–”; pass/fail needs all three sections."
+      n2Partial: "Sections not included in this quiz are shown as “–”; pass/fail needs all three sections.",
+      n2LiveScore: "Score so far", n2LiveTitle: "Current score", n2LiveProgress: "Answered {answered}/{total} · correct {correct}",
+      n2LiveNote: "Unanswered questions count as 0, so this is the score if you stopped now. Not an official score.", close: "Close"
     },
     ja: {
       n2ExamHint: "加重換算の推定得点 · 180点満点・公式得点ではありません",
@@ -113,7 +115,9 @@ const BUILTIN_DOMAINS = DOMAINS;
       n2WeightedPoints: "今回の加重点：{earned}/{available}",
       n2SecKnowledgeGrammar: "言語知識（文字・語彙・文法）", n2SecReading: "読解", n2SecListening: "聴解",
       n2Total: "総合", n2PassRule: "合格条件：総合 {pass}点以上、かつ各科目 {min}点以上", n2Pass: "合格圏", n2Fail: "合格ライン未満",
-      n2Partial: "今回含まれない科目は「–」です。合否の目安には3科目すべてが必要です。"
+      n2Partial: "今回含まれない科目は「–」です。合否の目安には3科目すべてが必要です。",
+      n2LiveScore: "現在の得点", n2LiveTitle: "現在の得点", n2LiveProgress: "回答済み {answered}/{total} · 正解 {correct}",
+      n2LiveNote: "未回答は0点として計算しています（今やめた場合の推定得点）。公式得点ではありません。", close: "閉じる"
     },
     zh: {
       n2ExamHint: "按题型加权估算 · 满分180分（非官方成绩）",
@@ -123,7 +127,9 @@ const BUILTIN_DOMAINS = DOMAINS;
       n2WeightedPoints: "本次加权得分：{earned}/{available}",
       n2SecKnowledgeGrammar: "言语知识（文字·词汇·语法）", n2SecReading: "读解", n2SecListening: "听解",
       n2Total: "总分", n2PassRule: "合格条件：总分 ≥ {pass} 分，且每个科目 ≥ {min} 分", n2Pass: "达到合格线", n2Fail: "未达合格线",
-      n2Partial: "本次未包含的科目显示为“–”；判定合格需要三个科目都有题目。"
+      n2Partial: "本次未包含的科目显示为“–”；判定合格需要三个科目都有题目。",
+      n2LiveScore: "当前得分", n2LiveTitle: "当前得分", n2LiveProgress: "已答 {answered}/{total} · 答对 {correct}",
+      n2LiveNote: "未作答的题按0分计算，即“现在结束”的估算得分，非官方成绩。", close: "关闭"
     }
   };
 
@@ -557,6 +563,37 @@ const BUILTIN_DOMAINS = DOMAINS;
     resume.focus();
   }
 
+  function showN2LiveScore() {
+    const session = state.session;
+    if (!session) return;
+    // Study mode counts only checked answers; exam mode counts every selected answer.
+    const answered = session.list.filter((q) => session.selected[q.id] != null && (session.mode === "exam" || session.checked[q.id]));
+    const counted = Object.fromEntries(answered.map((q) => [q.id, session.selected[q.id]]));
+    const estimate = n2ScoreEstimate(session.list, counted);
+    const correct = answered.filter((q) => counted[q.id] === q.answer).length;
+    const rows = estimate.sections.map((item) => {
+      const label = tr(`n2Sec${item.key[0].toUpperCase()}${item.key.slice(1)}`);
+      const low = item.score != null && item.score < bank.scoring.sectionMin;
+      return `<div class="n2-section-score ${low ? "is-low" : ""}"><span>${label}</span><strong>${item.score == null ? "–" : item.score} / ${item.scoreMax}</strong></div>`;
+    }).join("");
+    document.getElementById("live-score-dialog")?.remove();
+    document.body.insertAdjacentHTML("beforeend", `
+      <div class="session-choice-backdrop" id="live-score-dialog">
+        <section class="session-choice-dialog" role="dialog" aria-modal="true" aria-labelledby="live-score-title">
+          <h2 id="live-score-title">${tr("n2LiveTitle")}</h2>
+          <p>${tr("n2LiveProgress", { answered: answered.length, total: session.list.length, correct })}</p>
+          <div class="n2-section-scores">${rows}
+            <div class="n2-section-score is-total"><span>${tr("n2Total")}</span><strong>${estimate.score} / ${bank.scoring.scaleMax}</strong></div>
+          </div>
+          <p>${tr("n2LiveNote")}</p>
+          <div class="session-choice-actions"><button class="btn btn-primary" id="close-live-score" type="button">${tr("close")}</button></div>
+        </section>
+      </div>`);
+    const close = document.getElementById("close-live-score");
+    close.addEventListener("click", () => document.getElementById("live-score-dialog")?.remove());
+    close.focus();
+  }
+
   function startExamTimer() {
     document.getElementById("pause-dialog")?.remove();
     clearInterval(state.timerId);
@@ -796,7 +833,7 @@ const BUILTIN_DOMAINS = DOMAINS;
       <section class="quiz-wrap ${scenario ? "is-scenario" : isN2Bank() ? "is-n2-quiz" : ""}">
         <div class="quiz-topline">
           <span class="quiz-mode">${modeLabel(session.mode)}</span>
-          <div class="quiz-top-actions">${session.mode === "exam" ? `<div class="exam-float"><span class="timer" id="timer" aria-label="${plain("remaining")}">${formatTime(session.seconds)}</span><button class="text-button" id="pause-exam" type="button">⏸ ${tr("pause")}</button></div>` : ""}<button class="text-button" id="exit-quiz" type="button">← ${tr("backHome")}</button></div>
+          <div class="quiz-top-actions">${session.mode === "exam" ? `<div class="exam-float"><span class="timer" id="timer" aria-label="${plain("remaining")}">${formatTime(session.seconds)}</span><button class="text-button" id="pause-exam" type="button">⏸ ${tr("pause")}</button></div>` : ""}${isN2Bank() ? `<button class="text-button" id="n2-live-score" type="button">📊 ${tr("n2LiveScore")}</button>` : ""}<button class="text-button" id="exit-quiz" type="button">← ${tr("backHome")}</button></div>
         </div>
         <div class="progress-line" role="progressbar" aria-valuenow="${session.current + 1}" aria-valuemin="1" aria-valuemax="${session.list.length}"><div class="progress-value" style="width:${progress}%"></div></div>
         <div class="${scenario ? "scenario-layout" : isN2Bank() ? `n2-layout ${readingGroup ? "has-reading-passage" : ""}` : ""}">
@@ -838,6 +875,7 @@ const BUILTIN_DOMAINS = DOMAINS;
     document.getElementById("prev-question").addEventListener("click", () => { session.current -= 1; renderQuiz(); });
     document.getElementById("exit-quiz").addEventListener("click", openExitChoiceDialog);
     document.getElementById("pause-exam")?.addEventListener("click", pauseExam);
+    document.getElementById("n2-live-score")?.addEventListener("click", showN2LiveScore);
     document.getElementById("toggle-favorite").addEventListener("click", () => toggleFavorite(q.id));
     const checkButton = document.getElementById("check-answer");
     if (checkButton) checkButton.addEventListener("click", () => {
