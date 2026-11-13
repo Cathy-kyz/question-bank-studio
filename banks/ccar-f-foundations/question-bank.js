@@ -2611,9 +2611,9 @@ window.IMPORTED_QUESTIONS = [
         "en": "The coordinator cannot track which capabilities each subagent has, leading to misrouted tasks."
       }
     ],
-    "answer": 2,
+    "answer": 1,
     "explanation": {
-      "en": "Option C identifies the architectural contradiction. A specialized subagent’s role prompt says what work it\nshould perform, but granting it every tool simultaneously signals that unrelated actions are available and\npotentially legitimate. The synthesis agent can therefore interpret web search as a permissible way to fill gaps,\nwhile the report generator may invoke document-analysis tools even though those responsibilities belong\nelsewhere. Anthropic’s Agent SDK documentation describes subagents as focused workers with tailored\ninstructions and explicitly supports restricting each subagent to specific tools; it notes that tool restrictions\nreduce unintended actions. There is no documented universal threshold at which choosing among 18 tools\n\nbecomes unreliable, so option B invents a “four or five tools” limit. Context consumption in option A may\naffect efficiency, but it does not directly explain the role-specific cross-calling pattern. Option D is also\nincorrect because the observed behavior occurs after delegation, inside agents that already possess the tools.\nThe remedy is least-capability configuration: give the web agent search tools, the document agent document\ntools, the synthesis agent only the inputs and utilities required to combine findings, and the report agent\nformatting or file-output tools. Aligning role, description, and tool allowlist removes the conflicting\naffordances."
+      "en": "Option B identifies the primary cause. Every extra tool is another option the model has to rule out on\neach call. With 18 tools, many of them plausible for a given step (web search looks useful to a synthesizer that\nwants more data), selection reliability drops and agents drift outside their specialization. The fix is to scope each\nsubagent’s tools to its role, giving each one the four or five tools it actually needs. This smaller, relevant choice\nset reduces decision complexity and makes irrelevant tool selection less likely.\n\nThe agents’ role descriptions guide behavior, but do not remove unrelated tools from the set available to them.\nCoordinator routing is not the issue described: the misuse happens after agents receive their tasks. The central\nproblem is exposing all 18 tools to every subagent instead of applying role-specific tool access."
     },
     "sourceLanguage": "en"
   },
@@ -4042,7 +4042,7 @@ window.IMPORTED_QUESTIONS = [
         "en": "Extract data as-is and normalize formats in post-processing code after Claude returns."
       }
     ],
-    "answer": 3,
+    "answer": 1,
     "explanation": {
       "en": "The most reliable architecture separates semantic interpretation from deterministic normalization. Claude is\nwell suited to identifying that “$12” and “12.00” represent prices, or that a leaf icon represents a dietary\nclassification. However, canonical conversion—removing currency symbols, converting values to decimal\ntypes, mapping icons to controlled labels, and enforcing locale-specific rules—is more predictably performed\nin application code.\n\nStructured Outputs guarantee that Claude returns valid JSON matching the supplied schema, but that\nguarantee concerns structural conformance. It does not by itself guarantee that every semantically equivalent\nsource representation will be normalized identically. Anthropic’s evaluation guidance identifies code-based\nchecks as the fastest, most reliable, and most scalable mechanism for rule-based validation. ( https://platform.\nclaude.com/docs/en/build-with-claude/structured-outputs )\n\nOption D therefore minimizes model responsibility: Claude extracts the evidence as represented, and\ndeterministic post-processing converts it into the canonical downstream format. This also makes\nnormalization rules independently testable, version-controlled, and auditable.\n\nOption A increases latency and cost without solving normalization. Option B improves output structure, but\nprompt-based normalization can still vary across ambiguous formats. Option C introduces unnecessary\nstochasticity and majority-vote logic where explicit parsing rules are available. The downstream contract\nshould remain stable, but format conversion should be implemented using deterministic transformations rather\nthan repeated probabilistic inference.\n\nOfficial references/topics: Structured Outputs—schema compliance; Evaluation Design—code-based\nvalidation; Reliable extraction pipelines."
     },
@@ -4099,6 +4099,114 @@ window.IMPORTED_QUESTIONS = [
     "answer": 3,
     "explanation": {
       "en": "Option D uses the established integration mechanism without creating unnecessary infrastructure. Anthropic’s\nClaude Code MCP documentation specifically recommends connecting an MCP server when users repeatedly\ncopy information from an external system, such as an issue tracker, into conversations. Once connected, the\nserver exposes Jira operations through named, schema-defined tools that Claude can discover and invoke\ndirectly. This allows the agent to retrieve ticket descriptions, acceptance criteria, comments, and metadata\nwhile preserving the server’s authentication and access controls.\n\nOption A exposes authentication details to shell commands and requires the agent to construct requests and\nparse responses repeatedly. Option B is justified only when no existing server provides the required\ncapabilities or the workflow requires highly specialized operations. The question requires standard Jira\ninformation, so building and maintaining another server is unnecessary. Option C creates stale, manually\nsynchronized copies that lose permissions, current comments, and authoritative ticket state. The team should\ntherefore select a trusted Jira MCP implementation, configure appropriate read-only scopes where possible,\nand verify its tool descriptions and data-access boundaries before enabling it."
+    },
+    "sourceLanguage": "en"
+  },
+  {
+    "id": 153,
+    "domain": "prompt",
+    "category": "Prompt Engineering and Structured Output",
+    "prompt": {
+      "en": "You are building a structured data extraction system using Claude. The system extracts information from\nunstructured documents, validates the output using JavaScript Object Notation (JSON) schemas, and\nmaintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems.\n\nYour system must extract event details from calendar invitations and output JSON that strictly conforms to a\nschema with fields for title, date, time, location, and attendees. Downstream systems reject any malformed or\nnon-conformant JSON.\n\nWhat approach provides the most reliable schema compliance?"
+    },
+    "options": [
+      {
+        "en": "Include detailed JSON formatting instructions and the target schema in your prompt, then parse\nClaude's text response as JSON."
+      },
+      {
+        "en": "Use structured outputs: define the JSON schema in output_config.format so responses match it."
+      },
+      {
+        "en": "Append instructions like \"Output only valid JSON matching the schema exactly\" and implement retry\nlogic to re-prompt when JSON parsing fails."
+      },
+      {
+        "en": "Instruct Claude in the system prompt to respond only with valid JSON matching the schema, and wrap\nit in a json fence for extraction."
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "en": "Downstream ingest engines that enforce strict schema validation will reject any payload containing\nmalformed syntax, incorrect types, or missing keys. Relying on natural language prompting, few-shot\nformatting examples, or markdown code blocks introduces non-deterministic sampling variance where Claude\nmight output conversational text, markdown formatting, or invalid JSON syntax. Setting the schema in\noutput_config.format activates structured outputs, which utilizes constrained decoding at the API level.\nConstrained decoding applies a mathematical mask to token logits during sampling based on a context-free\ngrammar generated from the JSON schema. This guarantees that generated tokens strictly follow the JSON\nsyntax and conform to required fields—such as title, date, time, location, and attendees—rendering\nmalformed responses impossible. Options A and D rely on text generation where compliance is probabilistic\nand prone to drift or markdown formatting artifacts. Option C relies on post-generation parsing and reactive\nretries, which increases overall latency, increases API token costs, and introduces execution indeterminism.\nUsing output_config.format provides the only architectural guarantee of schema conformance.\n\nReferences / Topics: Study Guide – Prompt Engineering and Structured Output; Structured Outputs and JSON\nSchema Conformance; Constrained Token Decoding."
+    },
+    "sourceLanguage": "en"
+  },
+  {
+    "id": 154,
+    "domain": "reliability",
+    "category": "Context Management and Reliability",
+    "prompt": {
+      "en": "You are building a structured data extraction system using Claude. The system extracts information from\nunstructured documents, validates the output using JavaScript Object Notation (JSON) schemas, and\nmaintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems.\n\nYour extraction tool's JSON schema has 12 fields with detailed descriptions. Each document is sent in its own\nrequest with a 200-token system prompt, and documents average 800 tokens, which led to a pre-launch\n\nestimate of about 1,000 input tokens per request. After the first week, usage.input_tokens averages about\n3,900 per request.\n\nWhat is the most likely explanation?"
+    },
+    "options": [
+      {
+        "en": "Ticket text tokenizes less efficiently than estimated because of special characters and non-English\ncontent."
+      },
+      {
+        "en": "Tokens generated for the tool call are being reported as input tokens."
+      },
+      {
+        "en": "Prompt caching is not enabled, so the system prompt is counted at full weight each time."
+      },
+      {
+        "en": "The tool definition is sent with every request and counts toward input tokens."
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "en": "When utilizing tools with Claude, all tool definitions—including their names, descriptions, input schemas,\nparameter types, and field-level descriptions—are serialized into system instructions and sent across the wire\nwith every API request. In an extraction schema with 12 fields and extensive property descriptions, this\nschema payload introduces substantial token overhead, commonly consuming 2,500 to 3,000 input tokens.\nCombined with the 200-token system prompt and the 800-token unstructured document payload, the total\nbilled input context reaches approximately 3,900 usage.input_tokens per request. Estimating input volume\nbased solely on document and system prompt size overlooks the necessary contribution of schema definitions\nto input context. Option A is incorrect because tokenization variance across standard text cannot account for\nan unexpected 2,900-token baseline increase. Option B is incorrect because tool calls generated by Claude are\nbilled under usage.output_tokens, not input tokens. Option C is incorrect because an uncached 200-token\nsystem prompt only accounts for 200 tokens and cannot explain the additional 2,900 tokens. Implementing\nprompt caching on the tool definitions can mitigate ongoing token overhead.\n\nReferences / Topics: Study Guide – Context Management and Reliability; Tool Schema Definition Overhead;\nToken Accounting and Prompt Caching Strategies."
+    },
+    "sourceLanguage": "en"
+  },
+  {
+    "id": 155,
+    "domain": "agent",
+    "category": "Agentic Architecture and Orchestration",
+    "prompt": {
+      "en": "You are building a structured data extraction system using Claude. The system extracts information from\nunstructured documents, validates the output using JavaScript Object Notation (JSON) schemas, and\nmaintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems.\n\nYour extraction system exposes three tools: extract_fields, whose schema-validated JSON output is written to\nyour database, plus lookup_vendor and flag_for_review, which support operator questions and edge cases.\nEvery submitted document must produce an extract_fields record.\n\nIn testing, when an operator submits a document with a request like \"extract this invoice and check whether\nthe vendor already exists,\" Claude sometimes calls only lookup_vendor and never calls extract_fields, so no\nrecord is written.\n\nWhich approach guarantees an extract_fields call for every submitted document while still allowing Claude to\nhandle the rest of the operator's request?"
+    },
+    "options": [
+      {
+        "en": "Set tool_choice to \"auto\" and reorder the tool definitions so extract_fields appears first in the tools\narray, since Claude prioritizes earlier-listed tools."
+      },
+      {
+        "en": "Set tool_choice to {\"type\": \"tool\", \"name\": \"extract_fields\"} on the first request after submission, then\nreturn tool_choice to \"auto\" on subsequent turns so Claude can address the rest of the operator's request."
+      },
+      {
+        "en": "Set tool_choice to {\"type\": \"tool\", \"name\": \"extract_fields\"} for every API call in the pipeline, ensuring\nClaude always extracts fields before addressing the rest of the operator's request."
+      },
+      {
+        "en": "Set tool_choice to \"any\" so Claude must use a tool, combined with system prompt instructions\nprioritizing extract_fields."
+      }
+    ],
+    "answer": 1,
+    "explanation": {
+      "en": "In complex agentic pipelines with multi-turn tool calling, relying on default tool choice behavior (tool_choice:\n\"auto\") introduces non-deterministic execution paths when requests contain multiple operational objectives.\nWhen a user request instructs the model to extract data and also perform a lookup, Claude may evaluate the\navailable tools and call lookup_vendor first, potentially terminating execution before the required\nextract_fields tool is invoked. To establish a deterministic guarantee that extract_fields is executed for every\ndocument, the architecture must force the tool call on the initial turn by setting tool_choice: {\"type\": \"tool\",\n\"name\": \"extract_fields\"}. Once the extraction completes and its schema-validated output is recorded,\nupdating tool_choice back to \"auto\" for subsequent turns restores Claude's ability to reason, invoke auxiliary\ntools such as lookup_vendor or flag_for_review, and answer user queries. Option A fails because the order of\ntool definitions in the API request array does not enforce execution priority. Option C locks the model into\ninvoking extract_fields on every subsequent turn, preventing auxiliary tool use. Option D (tool_choice: \"any\")\nmandates tool execution but does not constrain which tool is selected.\n\nReferences / Topics: Study Guide – Agentic Architecture and Orchestration; Tool Choice Controls and\nDynamic State Handling; Multi-Turn Agent Workflows."
+    },
+    "sourceLanguage": "en"
+  },
+  {
+    "id": 156,
+    "domain": "prompt",
+    "category": "Prompt Engineering and Structured Output",
+    "prompt": {
+      "en": "You are building a structured data extraction system using Claude. The system extracts information from\nunstructured documents, validates the output using JavaScript Object Notation (JSON) schemas, and\nmaintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems.\n\nYour extraction pipeline occasionally receives responses that don't parse as valid JSON, causing downstream\nprocessing failures. The current implementation prompts Claude to return JSON in the response text and then\nparses it.\n\nWhat is the most reliable approach to ensure Claude returns valid, schema-compliant structured data?"
+    },
+    "options": [
+      {
+        "en": "Add explicit formatting instructions to the prompt with JSON examples, emphasizing that Claude must\nreturn only valid JSON with no surrounding text."
+      },
+      {
+        "en": "Implement a retry loop that catches JSON parse errors and re-prompts Claude with the error details,\nasking it to correct the malformed output."
+      },
+      {
+        "en": "Use regular expressions to locate and extract JSON from the response text, handling cases where\nClaude includes explanatory text around the JSON block."
+      },
+      {
+        "en": "Define the expected structure as a JSON schema and provide it in output_config.format so the API\nconstrains Claude's output to that structure."
+      }
+    ],
+    "answer": 3,
+    "explanation": {
+      "en": "In structured data extraction architectures, relying on natural language prompt directives, few-shot examples,\nor markdown delimiters leaves payload generation inherently vulnerable to non-deterministic parsing failures.\nEven capable large language models can produce conversational preambles, trailing explanations, or subtle\nJSON syntax malformations such as invalid escaping, trailing commas, or omitted closing brackets. Passing\nthe target JSON schema via output_config.format enables structured outputs through API-level constrained\ndecoding. This mechanism enforces schema compliance directly at the token generation and sampling stage\nusing grammar-based constraints, making it impossible for the model to emit invalid JSON syntax or violate\nspecified data types and required property definitions. Downstream processing pipelines receive guaranteed,\nschema-compliant structured data on the initial inference pass without requiring post-processing or error\nrecovery. Conversely, prompt formatting (Option A) and regular expression parsing (Option C) remain fragile\nheuristics that fail on complex nested objects or edge cases. Implementing retry loops (Option B) introduces\nlatency, non-deterministic execution times, and compounded API costs without solving the underlying\ngeneration reliability issue.\n\nReferences / Topics: Study Guide – Prompt Engineering and Structured Output; Constrained Decoding and\nStructured Outputs; JSON Schema Validation Standards."
     },
     "sourceLanguage": "en"
   }
