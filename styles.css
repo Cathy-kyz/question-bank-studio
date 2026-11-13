@@ -524,7 +524,7 @@ body { -webkit-tap-highlight-color: transparent; }
 .quiz-wrap.is-n2-quiz { max-width: 1180px; }
 .n2-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; align-items: start; }
 .n2-layout.has-reading-passage { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
-.n2-sidebar { position: sticky; top: 12px; z-index: 4; grid-column: 1 / -1; padding: 16px; }
+.n2-sidebar { grid-column: 1 / -1; padding: 16px; }
 .n2-section-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; }
 .n2-section-tab { display: flex; justify-content: space-between; align-items: center; gap: 5px; min-width: 0; border: 1px solid var(--line); border-radius: 10px; padding: 9px 10px; background: var(--surface); color: var(--muted); font-size: 11px; font-weight: 700; text-align: left; }
 .n2-section-tab span { flex: 0 0 auto; color: inherit; font-size: 10px; opacity: .75; }
