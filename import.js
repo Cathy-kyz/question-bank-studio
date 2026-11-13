@@ -60,7 +60,7 @@
       sampleHeading: "サンプル", sampleIntro: "このまま保存して試せる例です。内容をコピーして書き換えると、自分の問題集を作れます。",
       copySample: "コピー", copied: "コピーしました", copyFailed: "コピーできませんでした", downloadSample: "sample-bank.json をダウンロード",
       previewName: "問題集名", previewQuestions: "問題数", previewDomains: "領域", saveBank: "この問題集を保存して選択", cancel: "キャンセル",
-      saved: "保存しました。練習画面でこの問題集が選択されています。", importFailed: "取り込めませんでした：", notJson: "JSONとして読み込めません：",
+      saved: "保存しました。練習画面でこの問題集が選択されています。", savedToBanks: "banks/ に自動保存しました（{n}問）。練習画面でこの問題集が選択されています。", banksSkipped: "配点などの警告があるため banks/ には書き込まず、このブラウザーにだけ保存しました：", importFailed: "取り込めませんでした：", notJson: "JSONとして読み込めません：",
       deleteBank: "削除", deleteConfirm: "この問題集と、保存された進捗をすべて削除しますか？", noBanks: "取り込み済みの問題集はありません。",
       n2Heading: "JLPT N2 形式（type: jlpt-n2）", n2Intro: "N2 の過去問は、大問・文章・配点を含むこの形式で取り込みます。取り込むと、大問タブ・文章表示・3科目の採点・聴解の一括確認が使えます。", n2SampleHeading: "N2 サンプル", n2SampleIntro: "各種類の問題を1つずつ含む最小の例です。", n2DownloadSample: "n2-sample.json をダウンロード", n2PromptHeading: "AI 用の指示文", n2PromptIntro: "過去問のPDFとこの指示文をAIに渡すと、この形式のJSONを作らせることができます。", n2CopyPrompt: "指示文をコピー", previewType: "形式", previewWarnings: "確認してください", active: "選択中", questionsUnit: "問", footer: "問題集のインポート", saveFailed: "保存できませんでした。このブラウザーでは問題集を保存できない可能性があります。"
     },
@@ -73,7 +73,7 @@
       sampleHeading: "Sample", sampleIntro: "An example you can save and try as it is. Copy it and edit it to make your own bank.",
       copySample: "Copy", copied: "Copied", copyFailed: "Could not copy", downloadSample: "Download sample-bank.json",
       previewName: "Bank name", previewQuestions: "Questions", previewDomains: "Domains", saveBank: "Save and select this bank", cancel: "Cancel",
-      saved: "Saved. This bank is now selected in the practice screen.", importFailed: "Import failed:", notJson: "Not valid JSON:",
+      saved: "Saved. This bank is now selected in the practice screen.", savedToBanks: "Saved to banks/ automatically ({n} questions). This bank is now selected in the practice screen.", banksSkipped: "Not written to banks/ because of the warnings below; saved in this browser only:", importFailed: "Import failed:", notJson: "Not valid JSON:",
       deleteBank: "Delete", deleteConfirm: "Delete this bank and all progress saved for it?", noBanks: "No imported question banks yet.",
       n2Heading: "JLPT N2 format (type: jlpt-n2)", n2Intro: "Import N2 past papers in this format (problems, passages, points). You get problem tabs, passage display, three-section scoring and batch confirmation for listening.", n2SampleHeading: "N2 sample", n2SampleIntro: "A minimal example with one question of each kind.", n2DownloadSample: "Download n2-sample.json", n2PromptHeading: "Instructions for an AI", n2PromptIntro: "Give the past-paper PDFs and this text to an AI to have it produce JSON in this format.", n2CopyPrompt: "Copy instructions", previewType: "Format", previewWarnings: "Please check", active: "Selected", questionsUnit: "questions", footer: "Question bank import", saveFailed: "Could not save. This browser may not support storing question banks."
     },
@@ -86,7 +86,7 @@
       sampleHeading: "示例", sampleIntro: "可直接保存试用的示例。复制后修改内容，即可制作自己的题库。",
       copySample: "复制", copied: "已复制", copyFailed: "复制失败", downloadSample: "下载 sample-bank.json",
       previewName: "题库名称", previewQuestions: "题数", previewDomains: "领域", saveBank: "保存并选择此题库", cancel: "取消",
-      saved: "已保存。练习画面已选中此题库。", importFailed: "导入失败：", notJson: "无法作为 JSON 读取：",
+      saved: "已保存。练习画面已选中此题库。", savedToBanks: "已自动保存到 banks/（{n} 题）。练习画面已选中此题库。", banksSkipped: "因以下警告未写入 banks/，仅保存在此浏览器：", importFailed: "导入失败：", notJson: "无法作为 JSON 读取：",
       deleteBank: "删除", deleteConfirm: "确定删除此题库及其保存的全部进度吗？", noBanks: "还没有导入的题库。",
       n2Heading: "JLPT N2 格式（type: jlpt-n2）", n2Intro: "N2 真题用这种格式导入（含大题、文章、配点）。导入后可使用大题 tab、文章显示、三科目评分和听解统一确认。", n2SampleHeading: "N2 示例", n2SampleIntro: "每种题型各一道的最小示例。", n2DownloadSample: "下载 n2-sample.json", n2PromptHeading: "给 AI 的指示文", n2PromptIntro: "把真题 PDF 和这段文字交给 AI，就能让它生成这种格式的 JSON。", n2CopyPrompt: "复制指示文", previewType: "格式", previewWarnings: "请确认", active: "当前选择", questionsUnit: "题", footer: "题库导入", saveFailed: "无法保存。此浏览器可能不支持保存题库。"
     }
@@ -94,6 +94,7 @@
 
   let lang = ["en", "ja", "zh"].includes(localStorage.getItem(LANG_KEY)) ? localStorage.getItem(LANG_KEY) : "ja";
   let pending = null;
+  let pendingRaw = null;
   let notice = null;
   const t = (key) => (T[lang] || T.ja)[key] ?? T.en[key] ?? key;
   const pick = (value) => (value && typeof value === "object" ? value[lang] || value.en : value) || "";
@@ -181,6 +182,7 @@
   async function handleFile(file) {
     notice = null;
     pending = null;
+    pendingRaw = null;
     let raw;
     try {
       raw = JSON.parse(await file.text());
@@ -190,6 +192,7 @@
     }
     try {
       pending = normalizeBank(raw, file.name);
+      pendingRaw = raw;
       renderPreview();
     } catch (error) {
       notice = { text: `${t("importFailed")} ${error.message}`, error: true };
@@ -197,13 +200,40 @@
     }
   }
 
+  // With tools/serve.js running, a JLPT N2 bank is written into banks/ and registered in banks/manifest.js.
+  async function saveToBanksFolder(raw) {
+    try {
+      const status = await fetch("/api/status");
+      if (!status.ok) return null;
+    } catch {
+      return null;
+    }
+    const response = await fetch("/api/save-n2", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ raw }) });
+    return { ok: response.ok, ...(await response.json().catch(() => ({}))) };
+  }
+
   async function saveBank() {
     if (!pending) return;
     try {
+      let skipped = "";
+      if (pendingRaw?.type === "jlpt-n2") {
+        const result = await saveToBanksFolder(pendingRaw);
+        if (result?.ok) {
+          localStorage.setItem(BANK_KEY, result.id);
+          pending = null;
+          pendingRaw = null;
+          notice = { text: t("savedToBanks").replace("{n}", result.count), error: false };
+          renderPreview();
+          renderSaved();
+          return;
+        }
+        if (result) skipped = `${t("banksSkipped")} ${(result.warnings || [result.error]).join(" / ")}`;
+      }
       await saveImportedBank(pending);
       localStorage.setItem(BANK_KEY, pending.id);
       pending = null;
-      notice = { text: t("saved"), error: false };
+      pendingRaw = null;
+      notice = { text: skipped ? `${skipped} ${t("saved")}` : t("saved"), error: false };
     } catch {
       notice = { text: t("saveFailed"), error: true };
     }

@@ -191,33 +191,6 @@ window.IMPORTED_QUESTIONS = [
     "sourceLanguage": "en"
   },
   {
-    "id": 8,
-    "domain": "prompt",
-    "category": "Prompt Engineering and Structured Output",
-    "prompt": {
-      "en": "A user expands the research system beyond its original web-search agent by adding specialized data sources.\nA financial API agent returns structured JSON containing revenue, margins, and growth rates. A news-\nmonitoring agent returns prose summaries of recent developments. A patent-analysis agent returns structured\nlists of technology areas. The synthesis agent combines these results into executive briefings. Currently, it\nconverts everything into bullet points, causing financial comparisons to lose tabular clarity and news\nsummaries to lose their narrative flow. What change would most improve briefing quality?"
-    },
-    "options": [
-      {
-        "en": "Standardize all subagent outputs as prose summaries with inline citations."
-      },
-      {
-        "en": "Standardize all subagent outputs as JSON containing fields for claim, evidence, source, and confidence."
-      },
-      {
-        "en": "Update the synthesis agent to render each content type appropriately—financial data as tables, news as\nprose, and technology areas as structured lists."
-      },
-      {
-        "en": "Add a format-conversion layer that transforms every subagent result into a common intermediate\nrepresentation before synthesis."
-      }
-    ],
-    "answer": 2,
-    "explanation": {
-      "en": "Option C preserves the semantic strengths of each information type instead of forcing heterogeneous evidence\ninto one presentation structure. Financial values share comparable fields and therefore belong in a table. News\ndevelopments require connected prose to preserve chronology and causality. Patent technology areas are\nnaturally represented as grouped or prioritized lists.\n\nAnthropic’s prompting best practices recommend giving explicit output-format instructions and matching the\nrequested format to the intended communication goal. The synthesis prompt should therefore include\nrendering rules for each recognized content type while maintaining common provenance fields behind the\npresentation.\n\nOption A damages numerical comparability and makes trends harder to scan. Option B can be useful as an\ninternal exchange schema, but presenting the entire briefing as uniform JSON does not produce an effective\nexecutive document. Option D normalizes transport but does not correct the synthesis agent’s bullet-only\nrendering policy; a common representation can still be displayed badly. The correct design separates\nstructured internal interchange from audience-facing presentation. The synthesis agent should preserve\ncitations and metadata while selecting the most legible form for each class of evidence."
-    },
-    "sourceLanguage": "en"
-  },
-  {
     "id": 9,
     "domain": "reliability",
     "category": "Context Management and Reliability",
@@ -704,33 +677,6 @@ window.IMPORTED_QUESTIONS = [
     "sourceLanguage": "en"
   },
   {
-    "id": 27,
-    "domain": "mcp",
-    "category": "Tool Design and MCP Integration",
-    "prompt": {
-      "en": "The document-analysis agent has a single analyze_document tool that accepts a document and a free-text\ninstruction parameter. During evaluation, requests such as “extract the key financial metrics” often return\nnarrative summaries, while “summarize the methodology” sometimes returns raw data tables. The synthesis\nagent reports that 35% of analysis results require new requests with clarified instructions. What is the most\neffective way to improve reliability?"
-    },
-    "options": [
-      {
-        "en": "Split the generic tool into purpose-specific tools—extract_data_points, summarize_content, and\nverify_claim_against_source—each with defined input and output contracts."
-      },
-      {
-        "en": "Retain the single tool but add an analysis_type enum requiring explicit selection among extraction,\nsummarization, and verification modes."
-      },
-      {
-        "en": "Have the coordinator preclassify each analysis request before passing instructions to the document-\nanalysis agent."
-      },
-      {
-        "en": "Enhance the tool description with detailed examples showing how different instruction phrasings should\nmap to different output formats."
-      }
-    ],
-    "answer": 0,
-    "explanation": {
-      "en": "Option A removes the semantic ambiguity created by one generic tool performing three substantially different\noperations. Each replacement tool can have a distinct name, focused description, appropriate required\nparameters, and an output schema designed for its task. For example, extract_data_points can return typed\nrecords, while verify_claim_against_source can return a verdict, supporting excerpt, and source location.\n\nAnthropic’s tool-design guidance recommends thoughtful tools with clear, distinct purposes and natural task\nboundaries. Ambiguous or overlapping capabilities make it harder for agents to select the correct operation\nand interpret its results consistently.\n\nOption B improves the existing interface, but the implementation and result contract remain overloaded,\nincreasing the possibility that the model or tool will mix behavior across modes. Option C adds another\nprobabilistic classification stage without repairing the underlying interface. Option D may reduce some errors,\nbut free-text interpretation remains the principal control mechanism. Purpose-specific tools encode the\nintended operation directly into the callable interface, permit strict schemas tailored to each result type, and\nmake evaluation failures easier to diagnose. This produces a stronger contract between the agent and\ndeterministic document-processing system."
-    },
-    "sourceLanguage": "en"
-  },
-  {
     "id": 28,
     "domain": "reliability",
     "category": "Context Management and Reliability",
@@ -916,33 +862,6 @@ window.IMPORTED_QUESTIONS = [
     "answer": 3,
     "explanation": {
       "en": "A mandatory compliance threshold must be enforced outside probabilistic model reasoning. A PreToolUse\nhook can inspect every attempted process_refund call before execution, compare its amount with the $500\nthreshold, and deny the call when the limit is exceeded. The host application can then create the human-\nescalation case using the validated customer and order context.\n\nAnthropic describes hooks as deterministic controls that ensure required actions occur instead of relying on\nthe model to choose them. Agent SDK documentation confirms that a single denying PreToolUse hook blocks\nthe tool call, including MCP tools matched through their qualified tool names. ( https://docs.anthropic.com/en\n/docs/claude-code/hooks-guide )\n\nOptions A and B improve expected behavior but cannot guarantee compliance. The stated production failure\nrate demonstrates that prompting alone is insufficient. Option C prevents the refund from completing, but the\nsubsequent escalation still depends on Claude correctly interpreting the returned error and invoking the human\ntool. It therefore enforces the financial block but not the complete escalation requirement.\n\nOption D enforces both sides of the policy at the orchestration boundary: deny the unauthorized action and\nroute the case to an approved human process. The escalation action should be idempotent and auditable.\n\nOfficial references/topics: PreToolUse hooks, deterministic policy enforcement, MCP tool interception,\nhuman-approval controls."
-    },
-    "sourceLanguage": "en"
-  },
-  {
-    "id": 35,
-    "domain": "agent",
-    "category": "Agentic Architecture and Orchestration",
-    "prompt": {
-      "en": "When analyzing complex legal cases that cite multiple precedents, the document-analysis subagent processes\neach precedent sequentially. A landmark case citing 12 precedents takes more than three minutes to analyze\ncompletely. What is the most effective way to reduce this latency while preserving the coordinator’s ability to\nmonitor and debug the system?"
-    },
-    "options": [
-      {
-        "en": "Have the coordinator spawn parallel document-analysis subagents, each handling a subset of\nprecedents, and then aggregate the results before synthesis."
-      },
-      {
-        "en": "Enable the document-analysis subagent to spawn its own specialized subagents dynamically when it\nencounters cases with many citations."
-      },
-      {
-        "en": "Create a recursive agent hierarchy where analysis agents subdivide work among child agents until\nreaching single-precedent granularity."
-      },
-      {
-        "en": "Implement a message queue where precedent-analysis tasks are processed asynchronously by a pool of\nworker agents."
-      }
-    ],
-    "answer": 0,
-    "explanation": {
-      "en": "Option A parallelizes independent precedent analysis while preserving centralized control. The coordinator\ncan partition the 12 precedents into balanced groups, provide each worker with identical extraction and\ncitation requirements, monitor completion or failure, and aggregate the structured results before invoking\nsynthesis.\n\nAnthropic’s multi-agent research architecture uses an orchestrator-worker pattern in which a lead agent\ncoordinates specialized subagents operating in parallel. Parallel execution is valuable when tasks are\nsubstantially independent, as each precedent can be analyzed without waiting for the preceding case.\nMaintaining the fan-out at the coordinator also produces a clear execution trace showing each assignment,\nstatus, and returned result.\n\nOption B introduces nested delegation and makes tool usage, permissions, failures, and costs harder for the\ncoordinator to observe. Option C compounds those problems through recursive spawning and risks excessive\nagent and token consumption. Option D may be appropriate for a large distributed processing platform, but it\nadds infrastructure without inherently improving the coordinator’s reasoning-level observability or defining\nhow results are associated with the case. Coordinator-managed parallel workers provide the required latency\nreduction with the simplest debuggable architecture."
     },
     "sourceLanguage": "en"
   },
@@ -1136,33 +1055,6 @@ window.IMPORTED_QUESTIONS = [
     "sourceLanguage": "en"
   },
   {
-    "id": 43,
-    "domain": "agent",
-    "category": "Agentic Architecture and Orchestration",
-    "prompt": {
-      "en": "Your automated reviewer uses a single prompt covering security issues, API design, and business-logic\ncorrectness. Your evaluation suite shows strong recall for API-design findings at 82% but poor recall for\nbusiness-logic edge cases in quiz scoring at 34%. When you add few-shot examples of logic bugs to the\n\nprompt, logic recall improves to 41%, but API-design recall drops to 68%. How should you address this trade-\noff to improve detection across both categories?"
-    },
-    "options": [
-      {
-        "en": "Provide the full repository as context instead of only the changed files and surrounding code, giving the\nmodel deeper visibility into business-logic patterns."
-      },
-      {
-        "en": "Replace the few-shot examples with a detailed checklist of specific logic edge cases to verify, such as\ndivision by zero in score calculations and boundary conditions in grading thresholds."
-      },
-      {
-        "en": "Split the review into separate focused prompts—one for security and API design and another for\nbusiness logic—each with dedicated examples, and then consolidate the findings before posting."
-      },
-      {
-        "en": "Upgrade to a more capable model tier because its stronger reasoning will handle both concern types in a\nsingle prompt and eliminate the recall trade-off."
-      }
-    ],
-    "answer": 2,
-    "explanation": {
-      "en": "The evaluation results demonstrate prompt interference: improving attention to business-logic examples\nreduces performance on API design. Option C isolates the competing objectives so each model call can apply\nfocused terminology, examples, evidence requirements, and evaluation criteria. The resulting structured\nfindings can then be merged, deduplicated, and ranked before being posted.\n\nAnthropic’s Building Effective AI Agents describes parallelization through sectioning, where independent\naspects of a task are handled by separate model calls and subsequently aggregated. This pattern is appropriate\nwhen one prompt must evaluate several distinct considerations and a single call does not handle all of them\nreliably.\n\nOption A increases context volume without resolving competition between the review objectives; irrelevant\nrepository content may further dilute attention. Option B may improve known quiz-scoring cases but can\noverfit the reviewer to an incomplete checklist and does not restore API-design recall. Option D assumes that\nadditional model capability will eliminate prompt interference without supporting evaluation evidence.\nSeparate specialized review passes directly address the measured failure. Each pass should be evaluated\nindependently, followed by an end-to-end evaluation confirming that consolidation preserves recall and does\nnot introduce duplicated findings."
-    },
-    "sourceLanguage": "en"
-  },
-  {
     "id": 44,
     "domain": "code",
     "category": "Claude Code Configuration and Workflows",
@@ -1271,60 +1163,6 @@ window.IMPORTED_QUESTIONS = [
     "sourceLanguage": "en"
   },
   {
-    "id": 48,
-    "domain": "prompt",
-    "category": "Prompt Engineering and Structured Output",
-    "prompt": {
-      "en": "Your automated code review is missing genuine bugs in pull requests. Investigation reveals that the review\nprompt includes this instruction: “Only flag critical issues that would definitely cause production failures.\nIgnore minor concerns and anything you are uncertain about.” Developers confirm that some missed findings\nare genuine logic errors that the model investigated but chose not to report. The team requires the review\noutput to remain structured, with every finding tagged with metadata, and actionable. Which prompt change\nboth removes the cause of the suppressed findings and preserves structured, tagged output for downstream\nfiltering?"
-    },
-    "options": [
-      {
-        "en": "Enable extended thinking and instruct the model to reason step by step about every code change before\nproducing its review."
-      },
-      {
-        "en": "Instruct the model to report all findings with confidence and severity tags, deferring filtering to a\ndownstream step."
-      },
-      {
-        "en": "Remove all severity-related instructions and allow the model to use its default judgment about which\nfindings to report."
-      },
-      {
-        "en": "Add a second review pass that rereads the diff using the same prompt and looks for anything the first\npass may have missed."
-      }
-    ],
-    "answer": 1,
-    "explanation": {
-      "en": "The prompt explicitly instructs Claude to suppress uncertain and lower-severity findings. Increasing reasoning\ndepth cannot override that reporting policy: Claude may identify a real defect during analysis and still omit it\nfrom the final response. Option B separates comprehensive detection from acceptance filtering, removing the\nsource of the false negatives while retaining metadata needed for automated decisions.\n\nAnthropic’s current code-review prompting guidance recommends reporting every issue, including uncertain\nor lower-severity candidates, and attaching confidence and estimated severity so a separate verification or\nfiltering stage can rank them. A structured schema can additionally require fields such as file path, line\nnumber, category, confidence, severity, evidence, and recommended action.\n\nOption A may improve investigation quality but leaves the suppression instruction intact. Option C removes\nthe problematic threshold but also discards the explicit structured classification needed by downstream\nprocessing. Option D repeats the same review policy, so the second pass can suppress the same findings as the\nfirst. Option B preserves recall and machine-readable output while allowing deterministic, adjustable\ndownstream thresholds. This is more reliable than embedding an overly restrictive acceptance decision inside\nthe model’s initial detection task."
-    },
-    "sourceLanguage": "en"
-  },
-  {
-    "id": 49,
-    "domain": "code",
-    "category": "Claude Code Configuration and Workflows",
-    "prompt": {
-      "en": "The automated review consistently flags patterns your team uses intentionally—force-unwrapping optionals\nin test files, using large coordinator classes that follow your established architecture, and importing internally\nmaintained modules marked as deprecated in the public SDK. Developers are dismissing approximately 30%\nof all findings as project-specific false positives. Which approach prevents the model from generating these\nfindings in the first place by supplying the project’s conventions as persistent context during every review?"
-    },
-    "options": [
-      {
-        "en": "Build post-processing keyword filters that suppress findings containing terms such as “force unwrap,”\n“large class,” or “deprecated import” before results reach developers."
-      },
-      {
-        "en": "Configure the review to analyze only the changed lines in the diff without surrounding file context,\nreducing the amount of code the model evaluates during each review."
-      },
-      {
-        "en": "Have developers add inline suppression comments at flagged lines and preprocess diffs to exclude\nsuppressed lines before sending code to the model."
-      },
-      {
-        "en": "Document the team’s accepted patterns and intentional conventions in the project’s CLAUDE.md file\nso the model receives this context during every review."
-      }
-    ],
-    "answer": 3,
-    "explanation": {
-      "en": "Option D supplies the missing repository-specific knowledge before Claude evaluates the code. The project’s\nCLAUDE.md should state that force-unwrapping is permitted within test paths, explain the coordinator-class\narchitecture, and identify the internally maintained deprecated module as an approved dependency. These\ninstructions should be concise and scoped carefully so exceptions do not become global permissions.\n\nAnthropic’s CLAUDE.md documentation defines project CLAUDE.md files as persistent context for coding\nstandards, architecture, workflows, and team conventions. They are loaded at the beginning of applicable\nsessions, preventing the organization from repeatedly supplying the same corrections. Anthropic also\nrecommends recording information that Claude should know whenever it works in the repository.\n\nOption A filters generated findings after tokens have already been consumed and can hide genuine issues\ncontaining similar terminology. Option B removes valuable surrounding context and would likely increase\nfalse positives and missed cross-file defects. Option C distributes project knowledge across individual source\nlines, creates maintenance overhead, and requires custom preprocessing. Centralized, narrowly scoped\nCLAUDE.md instructions address the root cause and improve the initial review judgment instead of repairing\nits output afterward."
-    },
-    "sourceLanguage": "en"
-  },
-  {
     "id": 50,
     "domain": "reliability",
     "category": "Context Management and Reliability",
@@ -1429,33 +1267,6 @@ window.IMPORTED_QUESTIONS = [
     "answer": 1,
     "explanation": {
       "en": "Option B applies Anthropic’s dedicated asynchronous bulk-processing mechanism while preserving the\nexisting model and prompt for every commit. The Message Batches API accepts independent Messages API\nrequests, each identified by a unique custom_id, and charges both input and output usage at 50% of standard\nAPI prices. The approximately 12-hour latency allowance makes the release-notes workload well suited to\nbatching because immediate results are unnecessary.\n\nOption A may reduce wall-clock completion time, but concurrency does not alter the API’s per-token price.\nOption C changes the task structure and risks exceeding context or output limits, mixing commit-level\nclassifications, complicating retries, and making it harder to associate errors with individual commits. A\nsingle large request also does not automatically consume fewer tokens because the model must still process all\ncommit content. Option D violates the requirement to retain the same model tier and output-quality profile.\nBatch results may arrive in an order different from submission order, so the pipeline must associate every\nresponse with its original commit through custom_id. This provides lower cost without changing the\nindividual review prompts. Anthropic Message Batches documentation"
-    },
-    "sourceLanguage": "en"
-  },
-  {
-    "id": 54,
-    "domain": "reliability",
-    "category": "Context Management and Reliability",
-    "prompt": {
-      "en": "Your multi-agent research pipeline crashed after processing 12 of 28 documents. The web-search agent had\nidentified relevant sources, the document analyzer had partially completed extraction, and the synthesizer had\nbegun identifying patterns. You need to resume processing without repeating work or losing fidelity in the\nprior findings. What state-management approach best balances information fidelity with context efficiency\nwhen restoring agent state?"
-    },
-    "options": [
-      {
-        "en": "Have each agent persist a structured export to a known location. On resumption, the coordinator loads\nthe manifest and injects relevant state into agent prompts."
-      },
-      {
-        "en": "Have each agent maintain its own persistent state file and reload it independently at the beginning of\neach session."
-      },
-      {
-        "en": "Persist the coordinator’s conversation log containing all task delegations and responses, and provide\nthis log to the agents when resuming."
-      },
-      {
-        "en": "Index all agent outputs in a shared vector store. When resuming, have each agent query the store using\nsemantic search to retrieve relevant prior findings."
-      }
-    ],
-    "answer": 0,
-    "explanation": {
-      "en": "Option A combines lossless persistence with selective restoration. Each agent should checkpoint structured\nrecords containing completed document identifiers, extracted findings, source provenance, unresolved work,\nverification status, and schema version. A coordinator-level manifest can record which stages completed and\nwhere their artifacts are stored. On recovery, the coordinator skips completed documents and injects only the\nstate required by each restarted agent.\n\nAnthropic’s effective context-engineering guidance recommends structured notes stored outside the active\ncontext window and reloaded when needed. This preserves critical dependencies and progress without\nreplaying an entire execution history.\n\nOption B fragments recovery ownership across agents and makes cross-agent consistency, versioning, and\ndependency validation difficult. Option C preserves extensive logs but wastes context on redundant tool calls,\nobsolete instructions, and intermediate messages. Option D is useful for relevance retrieval but semantic\nsearch can omit exact details and should not serve as the authoritative recovery record. Structured checkpoints\nand a validated manifest provide deterministic recovery, efficient context reconstruction, auditability, and\nprecise provenance. Writes should be atomic so partially produced exports are never mistaken for completed\nwork."
     },
     "sourceLanguage": "en"
   },
@@ -1622,33 +1433,6 @@ window.IMPORTED_QUESTIONS = [
     "sourceLanguage": "en"
   },
   {
-    "id": 61,
-    "domain": "code",
-    "category": "Claude Code Configuration and Workflows",
-    "prompt": {
-      "en": "Your CI pipeline performs security-focused code reviews on approximately 50 pull requests daily, currently\ncosting $150 per day through the synchronous API. Reviews are non-blocking—developers merge after tests\npass and address findings in follow-up commits. You are evaluating the Message Batches API because it\noffers a 50% cost reduction. What factor most determines whether batch processing is appropriate for this use\ncase?"
-    },
-    "options": [
-      {
-        "en": "Whether your result-processing system can handle reviews arriving in a different order from the order\nin which they were submitted."
-      },
-      {
-        "en": "Whether each review can be structured as a single request without multi-turn refinement."
-      },
-      {
-        "en": "Whether review feedback arriving up to 24 hours after pull-request creation remains actionable."
-      },
-      {
-        "en": "Whether reducing per-review latency from 30–60 seconds to near-instantaneous delivery matters to\nyour workflow."
-      }
-    ],
-    "answer": 2,
-    "explanation": {
-      "en": "The decisive trade-off is whether the workflow can tolerate asynchronous completion. Anthropic’s Message\nBatches API documentation states that batch requests receive a 50% discount and that most batches finish\nwithin one hour, but processing can continue for as long as 24 hours. Therefore, the review process is suitable\nfor batching only if potentially delayed feedback remains useful.\n\nOption C directly tests that operational requirement. The reviews are already non-blocking, which makes\nbatching promising, but non-blocking does not automatically mean that feedback delivered many hours later\nstill has value. If developers have already merged and moved to unrelated work, delayed security findings\nmay increase remediation cost or remain unaddressed.\n\nOption A is manageable through each request’s unique custom_id, which allows results to be correlated\nregardless of return order. Option B is incorrect because batch requests can contain supported multi-turn\nconversation histories and tool-use configurations; each request is processed independently, but it need not\nrepresent a single conversational turn. Option D reverses the relevant consideration: batch processing is not\nintended to provide near-instantaneous responses. The real question is whether the cost saving justifies its\nlonger and nondeterministic completion time."
-    },
-    "sourceLanguage": "en"
-  },
-  {
     "id": 62,
     "domain": "reliability",
     "category": "Context Management and Reliability",
@@ -1780,33 +1564,6 @@ window.IMPORTED_QUESTIONS = [
     "answer": 1,
     "explanation": {
       "en": "The reviewer corrections have exposed a narrow and repeatable interpretation failure. The desired policy is\nclear: informal measurements are valid source values and must be preserved verbatim rather than normalized\ninto invented quantities or treated as missing. This behavior can be communicated efficiently through targeted\nfew-shot examples.\n\nAnthropic recommends examples for demonstrating expected behavior and improving consistency. Examples\ncan pair source phrases such as “a handful of spinach,” “a splash of vinegar,” and “a pinch of salt” with\noutputs that retain handful , splash , and pinch exactly. Additional counterexamples can show that Claude\nmust not convert these phrases into grams, millilitres, or estimated serving quantities. ( https://docs.anthropic.\ncom/en/docs/about-claude/use-case-guides/ticket-routing )\n\nOption A introduces a substantially heavier training workflow for a problem that can be addressed directly\nthrough the prompt. Option C creates a parallel extraction mechanism based on pattern matching; it will be\nbrittle across linguistic variations and may populate a value without understanding its relationship to the\ncorrect ingredient. Option D adds useful classification metadata, but it does not instruct Claude to preserve the\noriginal measurement instead of inventing or omitting it.\n\nThe revised prompt should combine an explicit verbatim-extraction rule with several varied examples derived\nfrom the corrected cases, followed by regression evaluation against the identified failure set.\n\nOfficial references/topics: Few-Shot Examples, Feedback-Driven Prompt Improvement, Verbatim\nExtraction, Regression Evaluation."
-    },
-    "sourceLanguage": "en"
-  },
-  {
-    "id": 67,
-    "domain": "reliability",
-    "category": "Context Management and Reliability",
-    "prompt": {
-      "en": "After the web-search and document-analysis subagents complete their tasks, the coordinator needs to spawn\nthe synthesis subagent to synthesize the findings. What is the correct approach for providing the synthesis\nsubagent with the information it needs?"
-    },
-    "options": [
-      {
-        "en": "Pass reference identifiers and configure the subagent with read access to a shared memory store where\nthe other subagents deposited their results."
-      },
-      {
-        "en": "Include the complete findings from both subagents directly in the synthesis subagent’s prompt."
-      },
-      {
-        "en": "Provide the subagent with tool definitions that allow it to request outputs from the other subagents\nthrough callbacks."
-      },
-      {
-        "en": "Spawn the subagent with only a brief task description, relying on automatic context inheritance from\nthe coordinator."
-      }
-    ],
-    "answer": 1,
-    "explanation": {
-      "en": "Option B follows the Claude Agent SDK’s default context-isolation model. A newly spawned subagent\nreceives a fresh context window and does not automatically inherit the parent’s conversation history or\nprevious tool results. The coordinator must therefore include the information required for synthesis directly in\nthe spawning prompt, preferably using clearly separated structured sections for web findings, document\nfindings, source metadata, conflicts, and unresolved questions.\n\nAnthropic’s official SDK subagent documentation states that the Agent tool’s prompt string is the content\npassed from the parent to the new subagent. It specifically advises including required file paths, errors, and\ndecisions in that prompt because parent context is not inherited.\n\nOption A could work only if the application had deliberately implemented and authorized such a shared-\nmemory architecture. The question establishes no such mechanism, and reference identifiers alone provide no\nevidence to the subagent. Option C introduces a callback protocol that is unnecessary for a normal handoff.\nOption D is incorrect because subagent isolation expressly prevents automatic inheritance. “Complete\nfindings” means the complete evidence needed for synthesis, not every intermediate search trace or irrelevant\ntool result."
     },
     "sourceLanguage": "en"
   },
@@ -2699,33 +2456,6 @@ window.IMPORTED_QUESTIONS = [
     "sourceLanguage": "en"
   },
   {
-    "id": 101,
-    "domain": "code",
-    "category": "Claude Code Configuration and Workflows",
-    "prompt": {
-      "en": "In addition to your CI pipeline, your organization has enabled Claude’s managed Code Review through the\nClaude GitHub App on this repository, and reviews run automatically on every pull request. Reviews average\n18 findings per pull request. Developer feedback reveals three categories of unwanted noise: (1) style and\nformatting issues already enforced by your CI linter, (2) findings on automatically generated template code\nunder src/gen/*, and (3) rendering-helper patterns that are intentional project conventions but are flagged\nbecause they resemble common anti-patterns. Only approximately four findings per pull request are genuine\nlogic bugs. What is the most effective way to reduce this noise while preserving the detection of real issues?"
-    },
-    "options": [
-      {
-        "en": "Create a REVIEW.md file at the repository root containing skip rules for CI-enforced checks and\ngenerated files, together with a verification requirement that rendering-related findings cite a specific\nline demonstrating incorrect behavior."
-      },
-      {
-        "en": "Configure separate GitHub Actions workflow files for each code area: one for generated code with\nfindings suppressed, one for rendering code with custom instructions, and one general workflow for\neverything else."
-      },
-      {
-        "en": "Add custom review instructions to a GitHub Actions workflow file, using the action’s prompt\nparameter to suppress duplicate lint findings, ignore generated template code, and impose stricter\nevidence requirements on rendering-related issues."
-      },
-      {
-        "en": "Add detailed explanations to the project’s CLAUDE.md describing intentional patterns, stating that CI\nhandles linting, and identifying src/gen/ as automatically generated code."
-      }
-    ],
-    "answer": 0,
-    "explanation": {
-      "en": "Option A uses the dedicated configuration mechanism for Anthropic’s managed Code Review service. The\nofficial Code Review documentation states that a root-level REVIEW.md is injected into every review agent\nas the highest-priority instruction block. It can redefine severity, suppress categories already enforced by CI,\nskip generated paths, and require concrete evidence before particular findings are reported.\n\nThe proposed rules map directly to the observed noise. Skipping lint and formatting findings eliminates\nduplication with deterministic CI checks. Excluding src/gen/* prevents comments on machine-generated\ncode. Requiring a specific source line demonstrating incorrect behavior raises the verification threshold for\nrendering-helper findings without suppressing genuine defects.\n\nOptions B and C configure self-hosted GitHub Actions workflows, but the scenario concerns managed Code\nReview running through the Claude GitHub App on Anthropic’s infrastructure. Those workflow prompts do\nnot govern the managed reviewer. Option D supplies useful general project context, but CLAUDE.md applies\nto all Claude Code tasks and has lower review-specific authority. The documentation states that REVIEW.md\nis the stronger control for changing what managed Code Review flags and how findings are reported. It\ntherefore provides the most targeted solution with the least unnecessary infrastructure."
-    },
-    "sourceLanguage": "en"
-  },
-  {
     "id": 102,
     "domain": "code",
     "category": "Claude Code Configuration and Workflows",
@@ -2803,33 +2533,6 @@ window.IMPORTED_QUESTIONS = [
     "answer": 3,
     "explanation": {
       "en": "Each requirement belongs in the mechanism matching its enforcement semantics. The migration restriction is\na hard safety boundary, so it should be implemented through permissions.deny , not merely expressed as\ncontextual guidance. Anthropic explicitly states that CLAUDE.md content is treated as context rather than\nenforced configuration. Permission rules use the Tool(specifier) form, evaluate deny rules before ask or allow\nrules, and support path-based Edit(...) restrictions. ( https://code.claude.com/docs/en/memory )\n\nThe custom logging convention is a persistent project preference, making CLAUDE.md the appropriate\nlocation. It should guide Claude’s code-generation decisions but does not require deterministic interception.\nPrettier formatting, by contrast, is deterministic automation. Anthropic documents the exact pattern of using a\nPostToolUse hook with an Edit|Write matcher to run Prettier automatically after file modifications. (\nhttps://code.claude.com/docs/en/hooks-guide )\n\nOption A incorrectly treats path-scoped rules as a security control; rules remain instructions. Option B\noveruses hooks for a semantic coding preference that belongs in CLAUDE.md. Option C relies entirely on\nstronger prompting, which cannot guarantee that protected files remain untouched. Option D correctly\nseparates prohibition, preference, and automatic enforcement.\n\nOfficial references/topics: Permission rules, CLAUDE.md semantics, PostToolUse formatting hooks."
-    },
-    "sourceLanguage": "en"
-  },
-  {
-    "id": 105,
-    "domain": "prompt",
-    "category": "Prompt Engineering and Structured Output",
-    "prompt": {
-      "en": "Your automated review calls the Claude API for each pull request, using tool_use with a report_findings tool\nthat returns a JSON array of finding objects. Each object contains file_path, line_number, severity, category,\nand description. During testing on a large pull request touching more than 30 files, the response reaches the\nmax_tokens limit and is truncated in the middle of the JSON, causing your pipeline’s parser to fail. What is\nthe most effective way to handle this?"
-    },
-    "options": [
-      {
-        "en": "Split the review into multiple API calls that each analyze a subset of the changed files, and then merge\nthe resulting findings arrays."
-      },
-      {
-        "en": "Increase max_tokens to the model’s maximum and instruct Claude to keep each finding description\nunder 50 words."
-      },
-      {
-        "en": "Switch from tool_use to prompting Claude to return findings as a Markdown list."
-      },
-      {
-        "en": "Add retry logic that detects truncated JSON and resends the request with instructions to report only\ncritical- and high-severity findings."
-      }
-    ],
-    "answer": 0,
-    "explanation": {
-      "en": "Option A reduces the maximum output required from any single response while preserving the structured\nschema and complete severity range. The pipeline can partition files into coherent groups, execute bounded\nreviews, validate each returned array, and merge and deduplicate findings using stable fields such as file path,\nline number, category, and description.\n\nAnthropic’s stop-reason documentation confirms that max_tokens means generation reached the configured\noutput limit and the response must be treated as incomplete. Structured output constraints can guarantee\nschema-valid generation when completion succeeds, but they cannot create unlimited output capacity. A large\nfindings array can still exceed the available token budget.\n\nOption B may postpone the failure but provides no durable guarantee for still-larger pull requests, and\naggressively shortening descriptions may eliminate necessary evidence. Option C abandons machine-\nvalidated structure without reducing the amount of generated content. Option D deliberately suppresses\nmedium- or low-severity findings and repeats an oversized request rather than addressing its scope.\nPartitioning establishes predictable output bounds, supports targeted retries, retains every required finding\ncategory, and prevents a single truncated response from invalidating the complete review."
     },
     "sourceLanguage": "en"
   },
@@ -3802,33 +3505,6 @@ window.IMPORTED_QUESTIONS = [
     "answer": 1,
     "explanation": {
       "en": "Option B removes the ambiguity from the tool interface itself. The agent no longer needs to choose between\nseparate functions that represent closely related business operations. Instead, a single compensation tool\nexposes an explicit action parameter, while the existing order lookup tool can optionally return delivery-\ntracking information through a clearly defined flag.\n\nAnthropic’s tool-design guidance recommends consolidating related operations into fewer, more capable tools\nwhen separate functions create unnecessary semantic overlap. Claude selects tools primarily from their\nnames, descriptions, schemas, and the current task. When multiple tools appear capable of satisfying the same\nrequest, selection accuracy declines because the agent must infer distinctions that should have been made\nexplicit in the interface design.\n\nOption A adds routing complexity but leaves overlapping financial operations available within the same sub-\nagent. Option C reduces the number of tools loaded initially, but it does not eliminate the semantic duplication\nbetween compensation operations or overlapping lookup functions. Option D may improve behavior through\nexamples, but it compensates for a poorly designed tool surface rather than correcting the root cause.\n\nThe consolidated schemas should use enums for supported actions, clearly define when each action applies,\nand document the returned fields. This creates a smaller and more deterministic agent-computer interface.\n\nOfficial references/topics: Tool consolidation, semantic tool boundaries, action parameters, MCP tool-\nselection accuracy."
-    },
-    "sourceLanguage": "en"
-  },
-  {
-    "id": 142,
-    "domain": "reliability",
-    "category": "Context Management and Reliability",
-    "prompt": {
-      "en": "After the web-search agent finds 25 sources containing 120,000 tokens of raw content, the document-analysis\nagent extracts 15,000 tokens of key insights, and the synthesis agent produces a coherent 3,000-token\n\nnarrative draft, the coordinator must pass context to the report-generation agent for the final output with\nproper source citations. What context-passing strategy provides the best balance of completeness and\nefficiency?"
-    },
-    "options": [
-      {
-        "en": "Pass a condensed summary of all prior stages that preserves the main findings and attributes them to\nsources by name only."
-      },
-      {
-        "en": "Pass the synthesis draft together with a structured source index that maps key claims to their source\nURLs and relevant excerpts."
-      },
-      {
-        "en": "Pass only the synthesis draft and use a separate post-processing pipeline to match claims to sources and\ninsert citations after report generation."
-      },
-      {
-        "en": "Pass the complete accumulated context from all prior agents."
-      }
-    ],
-    "answer": 1,
-    "explanation": {
-      "en": "Option B gives the report generator the two forms of information it actually needs: a compact narrative\ncontaining the synthesized conclusions and precise evidence records supporting those conclusions. The source\nindex should map claim identifiers to URLs, document locations, excerpts, and other provenance fields so\ncitations can be generated and verified without reloading 120,000 tokens of raw material.\n\nAnthropic’s context-engineering guidance recommends distilling extensive subagent activity into high-signal\nsummaries while preserving critical context and dependencies. Its research architecture similarly treats\nsubagents as intelligent filters that compress large evidence collections before returning relevant findings to\nthe coordinator.\n\nOption A lacks sufficient location-level evidence for reliable citation verification. Option C postpones\nattribution until after drafting, when claim wording may no longer map cleanly to the original evidence.\nOption D maximizes theoretical completeness but introduces extensive irrelevant material, higher token costs,\nslower processing, and greater context pollution. The synthesis draft plus a structured claim-to-source index\nmaintains evidentiary completeness where it matters while eliminating intermediate searches, duplicate\npassages, and other low-value context."
     },
     "sourceLanguage": "en"
   },
